@@ -126,11 +126,11 @@ A satisfactory electronic equation reference document would:
 \begin{itemize}
 \item Store equation database locally (network connectivity not required).
 \item Provide a means to write explanatory text for symbols or sub-expressions in the relevant equations.
-\item Store representations in at least one format of a variety of options (\LaTeX, MathML, OpenMath, etc.)
+\item Store representations in at least one format of a variety of options (\LaTeX, MathML, OpenMath, etc.) as well as a way to add more specific forms. For example, one might be a \LaTeX\ expression with the vector quantities having arrows like this $\vec{r}$, and another with vector quantities bolded like this $\mathbf{r}$.
 \item Provide the ability to optionally store and access other formats (e.g. Mathematica, MS Word, Matlab code, Fortran code, C code etc.)
 \item Call existing software to convert between representations so that not everything has to be converted manually. This falls into two categories:
 \begin{enumerate}
-\item Conversions that are essentially just formatting conversions. For example, while \LaTeX and MathML have some very apparent differences, they both require only enough information to typeset an equation, not actually evaluate it.
+\item Conversions that are essentially just formatting conversions. For example, while \LaTeX and MathML have some very apparent differences, they both require only enough information to typeset an equation, not actually evaluate it. The automatically generated markup could subsequently be tweaked by hand.
 \item Conversions from a typesetting or markup language like \LaTeX or MathML to an expression that can actually be evaluated; one that you can plug in numbers and get an answer. Some equations are simple enough that a conversion to, say, C code is trivial -- something just using trig, exponents, and arithmetic functions, for example. Others will be sufficiently abstract as to require manual conversion or avoiding a computable format at all. (Alternately, a link to some remotely hosted code may be in order; \hyperref[linking]{see below}.) Incidentally, Stephen Wolfram had this to say about this kind of conversion.
 \begin{quote}
 Unlike with ordinary human natural language, it is actually possible to take a very close approximation to familiar mathematical notation, and have a computer systematically understand it. That's one of the big things that we did about five years ago in the third version of Mathematica. And at least a little of what we learned from doing that actually made its way into the specification of MathML. 
@@ -150,9 +150,9 @@ Unlike with ordinary human natural language, it is actually possible to take a v
 
 \subsection{There's more to physics and math than equations, you know.}
 
-Yes, and people did math for centuries without nice modern algebraic notation, but they do provide a very lovely and compact way to represent relationships between variables.
+Yes, and people did math for centuries without nice modern algebraic notation, but equations do provide a very lovely and compact way to represent relationships between variables.
 
-Once we've got an easy and reliable way to find the equations you want, we can spend more time reasoning about whether the equation is applicable, what approximations to make, and what the physical interpretation is and how that squares with experiment and physical intuition.
+Once we've got an easy and reliable way to find the equations we want, we can spend more time reasoning about whether the equation is applicable, what approximations to make, and what the physical interpretation is and how that squares with experiment and physical intuition.
 
 \subsection{Equations without context are dangerous and people will use them when they are not really applicable or use circular reasoning.}
 
@@ -173,6 +173,8 @@ Yes.
 Try doing a \href{https://www.google.com/search?q=%22L+%3D+r+%C3%97+P%22&oq=%22L+%3D+r+%C3%97+P%22}{Google search for $L = r \times p$}. \href{http://symbolab.com/search?origin=suggestion&query=L%3Dr%5Ctimes%20p}{Symbolab works somewhat better} for this, as does \href{https://www.google.com/search?&q=%22L+%3D+r+%5Ctimes+P%22&oq=%22L+%3D+r+%5Ctimes+P%22
 }{searching for likely \LaTeX markup}.
 
+This is just a simple example of hard it is to find even a basic equation with relatively few ways to express it.
+
 %TODO add more examples explaining how badly things are broken and why this needs to change
 
 As for books, if you can get everything you need from one book, great. The ones I need are generally scattered across several books and journal articles, none of which have the same notation and only some of which have good indices.
@@ -189,6 +191,10 @@ The database of equations could certainly use the OpenMath standard as another r
 
 There are also efforts to make derivations automatic. This is a laudable goal, but most people are more interested in the actual results and where they are applicable than rigorously defining the actual mechanism to derive the results.
 
+\subsection{Would people actually use this?}
+
+I would, and I have \href{http://www.researchgate.net/post/I_am_looking_for_an_equation_database_or_digital_list_of_equations}{reason to believe} \href{http://productforums.google.com/forum/#!topic/websearch/lVJiyCSl-xk}{other people would, too}.
+
 \subsection{This is way too hard.}
 
 It's really not; see below for the actually hard problems. The individual components have existed for decades, they just haven't been tied together yet. I regularly use a \href{https://en.wikipedia.org/wiki/Recoll}{desktop search tool} to index my various documents and search them, it just isn't geared to equations and so doesn't have the specific features I would like.
@@ -201,7 +207,7 @@ Ideally, one would add semantics to equations. This could help avert the namespa
 
 For example, introductory kinematics generally uses $m$ for mass and $\mu$ for coefficients of friction. However, many upper-level mechanics books use $\mu$ for reduced mass. This can get awkward if you want to use reduced mass in a problem with coefficients of friction.
 
-If the semantics could be unambiguously specified, the symbols peculiar to the problem wouldn't matter as much, and symbol collisions could be detected and averted more easily.
+If the semantics could be unambiguously specified, the symbols peculiar to the problem wouldn't matter as much, and symbol collisions could be detected and averted more easily, perhaps even automatically if the software were given a list of candidates for symbolizing a variable.
 
 \subsection{Automatically converting existing documents.}
 
