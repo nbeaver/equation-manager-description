@@ -125,28 +125,30 @@ A satisfactory electronic equation reference document would:
 
 \begin{itemize}
 \item Store equation database locally (network connectivity not required).
-\item Provide a means to write explanatory text for symbols or sub-expressions in the relevant equations.
+\item Provide a means to write explanatory text for symbols or sub-expressions in the relevant equations, which most texts do anyway as a matter of course. For example, $\vec{L} = I \vec{\omega}$, where $\vec{L}$ is angular momentum, $I$ is the moment of inertia, and $\vec{\omega}$ is the angular velocity.
 \item Store representations in at least one format of a variety of options (\LaTeX, MathML, OpenMath, etc.) as well as a way to add more specific forms. For example, one might be a \LaTeX\ expression with the vector quantities having arrows like this $\vec{r}$, and another with vector quantities bolded like this $\mathbf{r}$.
 \item Provide the ability to optionally store and access other formats (e.g. Mathematica, MS Word, Matlab code, Fortran code, C code etc.)
 \item Call existing software to convert between representations so that not everything has to be converted manually. This falls into two categories:
 \begin{enumerate}
 \item Conversions that are essentially just formatting conversions. For example, while \LaTeX and MathML have some very apparent differences, they both require only enough information to typeset an equation, not actually evaluate it. The automatically generated markup could subsequently be tweaked by hand.
-\item Conversions from a typesetting or markup language like \LaTeX or MathML to an expression that can actually be evaluated; one that you can plug in numbers and get an answer. Some equations are simple enough that a conversion to, say, C code is trivial -- something just using trig, exponents, and arithmetic functions, for example. Others will be sufficiently abstract as to require manual conversion or avoiding a computable format at all. (Alternately, a link to some remotely hosted code may be in order; \hyperref[linking]{see below}.) Incidentally, Stephen Wolfram had this to say about this kind of conversion.
+\item Conversions from a typesetting or markup language like \LaTeX or MathML to an expression that can actually be evaluated; one that you can plug in numbers and get an answer. Some equations are simple enough that a conversion to, say, C code is trivial -- something just using trig, exponents, and arithmetic functions, for example. Others will be sufficiently abstract as to require manual conversion or avoiding a computable format at all. (Alternately, a link to some remotely hosted code may be in order; \hyperref[linking]{see below}.) Incidentally, Stephen Wolfram had this \href{http://www.stephenwolfram.com/publications/recent/mathml/mathml1.html} {to say} about this kind of conversion.
 \begin{quote}
 Unlike with ordinary human natural language, it is actually possible to take a very close approximation to familiar mathematical notation, and have a computer systematically understand it. That's one of the big things that we did about five years ago in the third version of Mathematica. And at least a little of what we learned from doing that actually made its way into the specification of MathML. 
 \end{quote}
 \end{enumerate}
 \item Perform queries based on popular names, form of equations, related equations, commonly used symbols.
 \item Perform queries based on similarity to a given input.
-\item Provide the option to perform simple substitutions (so $a+b^2$ could return $x+y^2$)
+\item Provide the option to perform simple substitutions (so a query for $a+b^2$ could return an equation stored as $x+y^2$, and one could specify substitution rules so that it outputs $m + n^2$)
 \item Provide the option to search for algebraically equivalent forms (e.g. $a(b+c)$ could return $a b + a c$). Note that this would only work for equations that had unambiguous computable forms provided, so that the software could call, e.g. Sage, Maxima, or Mathematica to determine whether or not the forms are algebraically equivalent. MathML or \LaTeX compilers will happily typeset algebraically ambiguous or uncomputable gibberish.
 \item Provide the option to search for algebraically equivalent forms with simple substitutions (e.g.  $a(b+c)$ could return $ x y + x z$)
 \item Provide the option to choose units system, so that a single equation would have both cgs and SI forms available, for example.
 \item Allow extensions to specify new unit systems or gauges.
-\item Link \label{linking} to internal and external references (refer to another equation in the same database, jump to a specified page of a local or remote PDF or ebook, standard html-style links to  urls, digital object identifiers, bibtex references, etc.) 
+\item Link to internal and external references (refer to another equation in the same database, jump to a specified page of a local or remote PDF or ebook, standard html-style links to  urls of relevant websites or source code implementations, digital object identifiers, bibtex references, etc.) 
 \end{itemize}
 
 \section{Some objections.}
+
+\label{linking}
 
 \subsection{There's more to physics and math than equations, you know.}
 
@@ -154,9 +156,9 @@ Yes, and people did math for centuries without nice modern algebraic notation, b
 
 Once we've got an easy and reliable way to find the equations we want, we can spend more time reasoning about whether the equation is applicable, what approximations to make, and what the physical interpretation is and how that squares with experiment and physical intuition.
 
-\subsection{Equations without context are dangerous and people will use them when they are not really applicable or use circular reasoning.}
+\subsection{Equations without context are dangerous and people will use them when they are not really applicable or assume what they are trying to prove, i.e.\ use circular reasoning.}
 
-A valid point, which is why it's important to write explanatory text about each symbol and link to more complete discussions.
+A valid concern, which is why it's important to write explanatory text about each symbol and link to more complete discussions.
 
 In any case, people already use equations when they aren't applicable, and this is generally because they don't want to put in the effort to look up the context of the equation. Properly used, this software could help mitigate this problem.
 
@@ -181,7 +183,10 @@ As for books, if you can get everything you need from one book, great. The ones 
 
 \subsection{Surely there are people already working on this, or something similar?}
 
-There are some \href{http://symbolab.com/}{interesting} \href{http://latexsearch.com/}{websites} \href{http://www.dessci.com/en/reference/searching/math-searching.htm}{out} there, but they're more about searching existing websites and scholarly literature and don't accomplish more than a few of the \hyperref[features]{features mentioned above}.
+There are some
+\href{http://symbolab.com/}{interesting} \href{http://latexsearch.com/}{websites} \href{http://www.dessci.com/en/reference/searching/math-searching.htm}{out}
+\href{http://www.equationsheet.com/}{there},
+but they're more about searching existing websites and scholarly literature and don't accomplish more than a few of the \hyperref[features]{features mentioned above}.
 
 \href{http://www.w3.org/Math/}{MathML} and \href{http://www.openmath.org/}{OpenMath} are projects that employ similar ideas, although MathML is focused mainly on web browsers and OpenMath is still unfinished. (The OpenMath website lists only 58 members, many of whom are professors that work on it in their spare time.)
 
@@ -207,10 +212,10 @@ Ideally, one would add semantics to equations. This could help avert the namespa
 
 For example, introductory kinematics generally uses $m$ for mass and $\mu$ for coefficients of friction. However, many upper-level mechanics books use $\mu$ for reduced mass. This can get awkward if you want to use reduced mass in a problem with coefficients of friction.
 
-If the semantics could be unambiguously specified, the symbols peculiar to the problem wouldn't matter as much, and symbol collisions could be detected and averted more easily, perhaps even automatically if the software were given a list of candidates for symbolizing a variable.
+If the semantics could be unambiguously specified, the symbols peculiar to the problem wouldn't matter as much, and symbol collisions could be detected and averted more easily, perhaps even automatically if the software were given a list of candidates for symbolizing a quantity.
 
 \subsection{Automatically converting existing documents.}
 
-In theory, it might possible to identify each equation in, for example, a \LaTeX\ document and automatically convert the units from, say, SI to cgs or vice versa. In practice, unless the equations are all pretty basic, I'm not sure this would be superior to doing it manually or with basic text-processing tools.
+In theory, it might possible to identify each equation in, for example, a \LaTeX\ document and automatically convert the units from, say, SI to cgs or vice versa. In practice, unless the equations are already in the database, I'm not sure this would be superior to doing it manually or with basic text-processing tools.
 
 \end{document}
