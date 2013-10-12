@@ -5,7 +5,7 @@
 \usepackage{amssymb}
 \usepackage{listings}
 \usepackage{hyperref}
-\usepackage{color}
+\usepackage[usenames,dvipsnames]{color}
 \usepackage{graphicx} %for pngs
 \usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
 \author{Nathaniel Beaver}
@@ -100,7 +100,9 @@ Both the print and electronic resources have a number of deficiencies. In partic
 \item There is no reliable standard for representation of variables, even for the simplest and most common equations. Sometimes a surface charge is $\sigma$, sometimes it is $\sigma_f$, and sometimes it is $\rho_s$.
 \item There are a variety of different conventions in use that differ between physics and mathematics. For example, while the right-hand rule is fairly universal, the quantities $\phi$ and $\theta$ are \href{http://mathworld.wolfram.com/SphericalCoordinates.html}{swapped in spherical coordinates}. Similar problems exist for Euler angles.
 \item There are \href{https://en.wikipedia.org/wiki/Systems_of_units}{many units systems in use in the sciences}, several of which are popular enough to include in, say, the \href{http://lammps.sandia.gov/doc/units.html}{software of a given subfield}, and even if everyone were to standardize tomorrow there is centuries of scholarly literature that is expressed in different units. One of the most common examples is the differing forms of equations for SI (MKSA) and Gaussian (cgs) systems. There are valid arguments for using either system, or using the so-called ``natural units''. Converting between these systems, however, is tedious, and people should not have to spend much time on it.
-\item In much the same way as there are many unit systems, there are many equally valid \href{https://en.wikipedia.org/wiki/Gauge_fixing}{choices of gauge} in electrodynamics and a \href{https://en.wikipedia.org/wiki/Tensor_notation}{proliferation of tensor notations}. Dirac notation is another example of elegant notation that is frequently ``translated'' into more familiar notation for some manipulations.
+\item In much the same way as there are many unit systems, there are many equally valid \href{https://en.wikipedia.org/wiki/Gauge_fixing}{choices of gauge} in electrodynamics and a \href{https://en.wikipedia.org/wiki/Tensor_notation}{proliferation of tensor notations}. Dirac notation is another example of elegant notation that is frequently ``translated'' into more familiar notation for some manipulations. 
+\item Many derivations in physics rely on substitutions that make the equations unitless, yet another related form of the equation that is difficult to find without looking up the original derivation. These kinds of change of variables are very common, but seldom tabulated systematically.
+\item Curves like conic sections have representations in Cartesian coordinates, polar coordinates, parametric coordinates, and a variety of other exotic options. These can be invaluable for simplifying analysis, but looking them up is time-consuming and re-deriving them is time-consuming and error-prone.
 \item No print or electronic resource is free from errors, and not everyone checks the errata page.
 \end{itemize}
 
@@ -127,7 +129,7 @@ A satisfactory electronic equation reference document would:
 \begin{itemize}
 \item Store equation database locally (network connectivity not required).
 \item Provide a means to write explanatory text for symbols or sub-expressions in the relevant equations, which most texts do anyway as a matter of course. For example, $\vec{L} = I \vec{\omega}$, where $\vec{L}$ is angular momentum, $I$ is the moment of inertia, and $\vec{\omega}$ is the angular velocity.
-\item Store representations in at least one format of a variety of options (\LaTeX, MathML, OpenMath, etc.) as well as a way to add more specific forms. For example, one might be a \LaTeX\ expression with the vector quantities having arrows like this $\vec{r}$, and another with vector quantities bolded like this $\mathbf{r}$.
+\item Store representations in at least one format of a variety of options (Unicode plaintext, \LaTeX, MathML, OpenMath, etc.) as well as a way to add more specific forms. For example, one might be a \LaTeX\ expression with the vector quantities having arrows like this $\vec{r}$, and another with vector quantities bolded like this $\mathbf{r}$.
 \item Provide the ability to optionally store and access other formats (e.g. Mathematica, MS Word, Matlab code, Fortran code, C code etc.)
 \item Call existing software to convert between representations so that not everything has to be converted manually. This falls into two categories:
 \begin{enumerate}
@@ -207,6 +209,12 @@ I would, and I have \href{http://www.researchgate.net/post/I_am_looking_for_an_e
 
 It's really not; see below for the actually hard problems. The individual components have existed for decades, they just haven't been tied together yet. I regularly use a \href{https://en.wikipedia.org/wiki/Recoll}{desktop search tool} to index my various documents and search them, it just isn't geared to equations and so doesn't have the specific features I would like.
 
+\subsection{There are too many equations. Searching for them would be hopeless.}
+
+While there are a large (though finite) number of equations of a given finite size, only a tiny subset of them are useful.
+
+For comparison, there are a lot of Unicode characters, but writing a \href{https://mail.python.org/pipermail/python-announce-list/2003-April/002183.html}{program to search for the one you want} is standard. The \href{http://sources.debian.net/src/unicode/0.9.7/unicode}{code for querying the database} is pretty simple, too.
+
 \section{More ambitious possibilities.}
 
 \subsection{Semantics of representation.}
@@ -220,5 +228,28 @@ If the semantics could be unambiguously specified, the symbols peculiar to the p
 \subsection{Automatically converting existing documents.}
 
 In theory, it might possible to identify each equation in, for example, a \LaTeX\ document and automatically convert the units from, say, SI to cgs or vice versa. In practice, unless the equations are already in the database, I'm not sure this would be superior to doing it manually or with basic text-processing tools.
+
+\subsection{New ways of seeing equations.}
+
+Feynman had \href{https://en.wikipedia.org/wiki/Grapheme-color_synesthesia}{grapheme-color synesthesia}.
+
+\begin{quote}
+When I see equations, I see the letters in colors – I don't know why. As I'm talking, I see vague pictures of Bessel functions from Jahnke and Emde's book, with light-tan j's, slightly violet-bluish n's, and dark brown x's flying around. And I wonder what the hell it must look like to the students."
+\end{quote}
+
+It might have looked something like this.
+
+\newcommand{\nF}{\textcolor{DarkOrchid}{n}}
+\newcommand{\xF}{\textcolor{Brown}{x}}
+\newcommand{\JF}{\textcolor{Tan}{J}}
+\boldmath
+\[
+\JF_{\nF}(i \xF) \JF_{\nF}'(\xF) - i \JF_{\nF}(\xF) \JF_{\nF}' (i \xF) = 0
+\]
+\unboldmath
+
+With sufficient metadata about an equation, it would be possible to write a filter that would automatically color-code the expression. For example, functions, variables, constants, and integers (e.g. indices) could each have their own color.
+
+
 
 \end{document}
