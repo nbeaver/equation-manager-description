@@ -233,12 +233,14 @@ If the semantics could be unambiguously specified, the symbols peculiar to the p
 
 In theory, it might possible to identify each equation in, for example, a \LaTeX\ document and automatically convert the units from, say, SI to cgs or vice versa. In practice, unless the equations are already in the database, I'm not sure this would be superior to doing it manually or with basic text-processing tools.
 
-\subsection{New ways of seeing equations.}
+\subsection{New ways of seeing and reasoning about equations.}
 
-Feynman had \href{https://en.wikipedia.org/wiki/Grapheme-color_synesthesia}{grapheme-color synesthesia}.
+Once an equation can be parsed into a machine-manipulable format, there are many possibilities, including color-coding, dependency graphs to keep track of which parts depend on a given quantity, and whether it is separable into functions of the variables it depends on.
+
+For example, Richard Feynman had \href{https://en.wikipedia.org/wiki/Grapheme-color_synesthesia}{grapheme-color synesthesia}.
 
 \begin{quote}
-When I see equations, I see the letters in colors – I don't know why. As I'm talking, I see vague pictures of Bessel functions from Jahnke and Emde's book, with light-tan j's, slightly violet-bluish n's, and dark brown x's flying around. And I wonder what the hell it must look like to the students."
+``When I see equations, I see the letters in colors – I don't know why. As I'm talking, I see vague pictures of Bessel functions from Jahnke and Emde's book, with light-tan j's, slightly violet-bluish n's, and dark brown x's flying around. And I wonder what the hell it must look like to the students."
 \end{quote}
 
 It might have looked something like this.
@@ -253,7 +255,5 @@ It might have looked something like this.
 \unboldmath
 
 With sufficient metadata about an equation, it would be possible to write a filter that would automatically color-code the expression. For example, functions, variables, constants, and integers (e.g. indices) could each have their own color.
-
-
 
 \end{document}
