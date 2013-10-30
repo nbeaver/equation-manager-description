@@ -42,7 +42,9 @@ The 3rd edition of John David Jackson's ``Classical Electrodynamics'' also uses 
 n \times (\mathbf{E}_2 - \mathbf{E}_1) &= 0
 \end{align*}
 
-The drawback is that these equations have to be manually typed up for use in a \LaTeX\ document or word processing software, a laborious process even for relatively short equations. Ebooks and PDF files do not solve this problem.
+The drawback is that these equations have to be manually typed up for use in a \LaTeX\ document or word processing software, a laborious process even for relatively short equations.
+
+Ebooks and PDF files do not generally solve this problem, as they do not use \LaTeX\ internally. If the original document is written in \LaTeX\, however, it is \href{http://www.ctan.org/pkg/embedfile}{possible to attach the entire \LaTeX\ source code to a PDF}, although this is somewhat less than convenient and does not automatically unwrap macros into standard \LaTeX\ commands.
 
 \subsection{Electronic resources.}
 
@@ -102,15 +104,15 @@ This will only be sufficient if:
 Both the print and electronic resources have a number of deficiencies. In particular,
 \begin{itemize}
 \item There is no reliable standard for representation of variables, even for the simplest and most common equations. Sometimes a surface charge is $\sigma$, sometimes it is $\sigma_f$, and sometimes it is $\rho_s$.
-\item There are a variety of different conventions in use that differ between physics and mathematics. For example, while the right-hand rule is fairly universal, the quantities $\phi$ and $\theta$ are \href{http://mathworld.wolfram.com/SphericalCoordinates.html}{swapped in spherical coordinates}. Similar problems exist for Euler angles.
-\item There are \href{https://en.wikipedia.org/wiki/Systems_of_units}{many units systems in use in the sciences}, several of which are popular enough to include in, say, the \href{http://lammps.sandia.gov/doc/units.html}{software of a given subfield}, and even if everyone were to standardize tomorrow there is centuries of scholarly literature that is expressed in different units. One of the most common examples is the differing forms of equations for SI (MKSA) and Gaussian (cgs) systems. There are valid arguments for using either system, or using the so-called ``natural units''. Converting between these systems, however, is tedious, and people should not have to spend much time on it.
+\item There are a variety of different conventions in use that differ between physics and mathematics. For example, while the right-hand rule is fairly universal, the quantities $\phi$ and $\theta$ are \href{http://mathworld.wolfram.com/SphericalCoordinates.html}{swapped in spherical coordinates}. Similar problems exist for \href{http://mathworld.wolfram.com/EulerAngles.html}{Euler angles}.
+\item There are \href{https://en.wikipedia.org/wiki/Systems_of_units}{many units systems in use in the sciences}, several of which are popular enough to include in, say, the \href{http://lammps.sandia.gov/doc/units.html}{software of a given subfield}, and even if everyone were to standardize tomorrow there are centuries of scholarly literature that is expressed in different units. One of the most common examples is the differing forms of equations for SI (MKSA) and Gaussian (cgs) systems. There are valid arguments for using either system, or using the so-called ``natural units''. Converting between these systems, however, is tedious, and people should not have to spend much time on it.
 \item In much the same way as there are many unit systems, there are many equally valid \href{https://en.wikipedia.org/wiki/Gauge_fixing}{choices of gauge} in electrodynamics and a \href{https://en.wikipedia.org/wiki/Tensor_notation}{proliferation of tensor notations}. Dirac notation is another example of elegant notation that is frequently ``translated'' into more familiar notation for some manipulations. 
 \item Many derivations in physics rely on substitutions that make the equations unitless, yet another related form of the equation that is difficult to find without looking up the original derivation. These kinds of change of variables are very common, but seldom tabulated systematically.
 \item Curves like conic sections have representations in Cartesian coordinates, polar coordinates, parametric coordinates, and a variety of other exotic options. These can be invaluable for simplifying analysis, but looking them up is time-consuming and re-deriving them is time-consuming and error-prone.
 \item No print or electronic resource is free from errors, and not everyone checks the errata page.
 \end{itemize}
 
-Together, these problems can make what should be simple tasks into a chore. There is frequently unnecessary friction, for example, in using results from two different papers or collaborating with a colleague who uses a different unit system. And how many scholars have lost hours of work have been lost by writing a paper with one choice of symbols and units and having to change them all for a journal submission?
+Together, these problems can make what should be simple tasks into a chore. There is frequently unnecessary friction, for example, in using results from two different papers or collaborating with a colleague who uses a different unit system. And how many scholars have lost hours of work by writing a paper with one choice of symbols and units and having to change them all for a journal submission?
 
 \section{What the solution should look like.}
 
@@ -159,9 +161,9 @@ Unlike with ordinary human natural language, it is actually possible to take a v
 
 \subsection{There's more to physics and math than equations, you know.}
 
-Yes, and people did math for centuries without nice modern algebraic notation, but equations do provide a very lovely and compact way to represent relationships between variables.
+Yes, and people did complex math for centuries without nice modern algebraic notation, but equations do provide a very lovely and compact way to represent relationships between variables.
 
-Once we've got an easy and reliable way to find the equations we want, we can spend more time reasoning about whether the equation is applicable, what approximations to make, and what the physical interpretation is and how that squares with experiment and physical intuition.
+Once we've got an easy and reliable way to find the equations we want, we can spend more time reasoning about whether the equation is applicable, what approximations to make, what the physical interpretation is, and how that interpretation squares with experiment and physical intuition.
 
 \subsection{Equations without context are dangerous and people will use them when they are not really applicable or assume what they are trying to prove, i.e.\ use circular reasoning.}
 
