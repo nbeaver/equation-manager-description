@@ -46,7 +46,7 @@ The drawback is that these equations have to be manually typed up for use in a \
 
 Ebooks and PDF files do not generally solve this problem, as they do not use \LaTeX\ internally.
 
-If the original document is written in \LaTeX\, however, it is \href{http://www.ctan.org/pkg/embedfile}{possible to attach the entire \LaTeX\ source code to a PDF}, although this is somewhat less than convenient and does not automatically unwrap macros into standard \LaTeX\ commands.
+If the original document is written in \LaTeX\, however, it is \href{http://www.ctan.org/pkg/embedfile}{possible to attach the entire \LaTeX\ source code to a PDF}, although this is somewhat less than convenient and does not automatically unwrap macros into standard \LaTeX\ commands. This means that the authors must either avoid the use of macros or the user must copy all the necessary macros to use the equations.
 
 \subsection{Electronic resources.}
 
@@ -98,7 +98,7 @@ This will only be sufficient if:
 \begin{enumerate}
 \item I want \LaTeX\ markup.
 \item the Wikipedia editor uses the \LaTeX\ markup correctly.
-\item the Wikipedia markup uses the same symbols and units system.
+\item the Wikipedia markup uses the same symbols and units system that I want to use.
 \end{enumerate}
 
 \section{The problem.}
@@ -179,6 +179,12 @@ This is just a nomenclature thing.
 
 I assume that this software could work for mathematical expressions in general, identities, approximations, chemical formulas, etc. Most of the time, though, we need to know about relationships between variables, so ``equations'' are what most people think of and use regularly.
 
+\subsection{Making it easier to change conventions will encourage fragmentation.}
+
+Possibly, but it's pretty badly fragmented already. If there is a reliable system to automatically change systems of units and the like, fragmentation will not matter.
+
+Furthermore, such a system would encourage using a standard form when writing papers and textbooks, since everyone could convert to their favorite set of conventions without difficulty.
+
 \subsection{Is it really so much work to use a web search or a book index?}
 
 Yes.
@@ -229,7 +235,7 @@ For comparison, there are a lot of Unicode characters, but writing a \href{https
 
 \section{More ambitious possibilities.}
 
-\subsection{Semantics of representation.}
+\subsection{Semantics of representation and elimination of ambiguity.}
 
 Ideally, one would add semantics to equations. This could help avert the namespace problem which is rampant in physics.
 
@@ -239,9 +245,11 @@ If the semantics could be unambiguously specified, the symbols peculiar to the p
 
 \subsection{Automatically converting existing documents.}
 
-In theory, it might possible to identify each equation in, for example, a \LaTeX\ document and automatically convert the units from, say, SI to cgs or vice versa. In practice, unless the equations are already in the database, I'm not sure this would be superior to doing it manually or with basic text-processing tools.
+It might possible to identify each equation in, for example, a \LaTeX\ document and automatically convert the units from, say, SI to cgs or vice versa. In practice, unless the equations are already in the database, I'm not sure this would be superior to doing it manually or with basic text-processing tools.
 
-%TODO Talk about how awareness of this will make people focus on making their documents conform to standards that make it easy to shift between notations and conventions.
+More important is to develops standards that make it trivial to shift between notations and conventions. This will be largely invisible in terms of form, but such functionality will make collaboration and reuse easier and more robust.
+
+For example, a textbook with basic semantics of unit systems built-in could be used by an engineering class with customary units, an introductory physics class with SI units, or as a supplement to an existing work in cgs units with no confusion or tedious manual conversion.
 
 \subsection{New ways of seeing and reasoning about equations.}
 
@@ -266,7 +274,11 @@ It might have looked something like this.
 
 With sufficient metadata about an equation, it would be possible to write a filter that would automatically color-code the expression. For example, functions, variables, constants, and integers (e.g. indices) could each have their own color.
 
-\subsection{Reasoning about physical systems and their connections}
+Color-coding would provide an extra degree of freedom for defining quantities and dramatically increase the information density of an equation. Furthermore, it would provide a kind of rudimentary visual type system for mathematics.
+
+Equation metadata would provide insight into what is invariant in an equation and what is the product of conventions such as positive and negative charge, origin, gauge, basis, and orientation (left or right handedness) of a vector space.
+
+\subsection{Reasoning about physical systems and connections between them based on mathematical structure.}
 
 The practical purpose of associating equivalent forms is to save time and effort. The greater purpose is to make explicit connections between seemingly disparate systems.
 
