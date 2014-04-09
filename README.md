@@ -1,4 +1,4 @@
-See the PDF [here](spec.pdf) and the LaTeX source [here](spec.tex).
+See the PDF [here](description.pdf) and the LaTeX source [here](description.tex).
 
 For a minimal prototype, see here:
 
