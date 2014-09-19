@@ -137,7 +137,7 @@ A satisfactory electronic equation reference document would:
 \begin{itemize}
 \item Store equation database locally (network connectivity not required).
 \item Provide a means to write explanatory text for symbols or sub-expressions in the relevant equations, which most texts do anyway as a matter of course. For example, $\vec{L} = I \vec{\omega}$, where $\vec{L}$ is angular momentum, $I$ is the moment of inertia, and $\vec{\omega}$ is the angular velocity.
-\item Store representations in at least one format of a variety of options (Unicode plaintext, \LaTeX\, MathML, OpenMath, etc.) as well as a way to add more specific forms. For example, one might be a \LaTeX\ expression with the vector quantities having arrows like this $\vec{r}$, and another with vector quantities bolded like this $\mathbf{r}$.
+\item Store representations in at least one format of a variety of options (Unicode UTF-8 plaintext, \LaTeX, MathML, OpenMath, etc.) as well as a way to add more specific forms. For example, one might be a \LaTeX\ expression with the vector quantities having arrows like this: $\vec{r}$; and another with vector quantities bolded like this: $\mathbf{r}$.
 \item Provide the ability to optionally store and access other formats (e.g. Mathematica, MS Word, Matlab code, Fortran code, C code etc.)
 \item Call existing software to convert between representations so that not everything has to be converted manually. This falls into two categories:
 \begin{enumerate}
@@ -249,11 +249,34 @@ If the semantics could be unambiguously specified, the symbols peculiar to the p
 
 \subsection{Automatically converting existing documents.}
 
-It might possible to identify each equation in, for example, a \LaTeX\ document and automatically convert the units from, say, SI to cgs or vice versa. In practice, unless the equations are already in the database, I'm not sure this would be superior to doing it manually or with basic text-processing tools.
+It might possible to identify each equation in, for example, a \LaTeX\ document and automatically convert the units from, say, SI to cgs or vice versa.
 
-More important is to develops standards that make it trivial to shift between notations and conventions. This will be largely invisible in terms of form, but such functionality will make collaboration and reuse easier and more robust.
+In practice, however, because of things like \LaTeX\ macros and ambiguity of representation, automatic conversion tends to be fragile. Some transformations are best done manually or with the aid of ad-hoc search-and-replace text-processing tools.
+
+A more promising possibility is to develop standards like OpenMath with the goal of making it trivial to shift between notations and conventions. This will be largely invisible in terms of form, but such functionality will make collaboration and reuse easier and more robust.
 
 For example, a textbook with basic semantics of unit systems built-in could be used by an engineering class with customary units, an introductory physics class with SI units, or as a supplement to an existing work in cgs units with no confusion or tedious manual conversion.
+
+It could also link each use of an equation back to the derivation as a kind of dependency graph that makes the hierarchical structure of the mathematics explicit.
+
+\subsection{``Fingerprints'' for equivalent mathematical expressions.}
+
+Regardless of the notation used in, for example, the Pythagorean theorem, there are always three independent variables. There is also always two operations (self-multiplication and addition), or three if we count equality as an operation. Also, the commutativity properties means that symmetry groups can be used to describe the equation.
+
+These examples of notation-invariant properties could potentially be tabulated and systematized as a kind of fingerprint for a large number of commonly-used expressions, which could make recognizing mathematical patterns easier, since familiarity with the particular notation would not be necessary to recognize the pattern.
+
+Ideally the fingerprint would be robust enough to help identify a given equation's sub-expression as equivalent or related to another equation.
+
+For example, an expression of the form
+\[ a = \frac{b c}{b +c} \]
+will get many physicists thinking about electronics,
+since the equivalent expression
+\[ \frac{1}{a} = \frac{1}{b} + \frac{1}{c} \]
+corresponds to adding resistors in parallel or capacitors in series.
+However, the symmetry is obscured somewhat in the first form.
+
+A desirable mathematical fingerprint would bring this pattern out into the open,
+and would extend to helping identify sums of any number of reciprocals.
 
 \subsection{New ways of seeing and reasoning about equations.}
 
@@ -280,7 +303,7 @@ With sufficient metadata about an equation, it would be possible to write a filt
 
 Color-coding would provide an extra degree of freedom for defining quantities and dramatically increase the information density of an equation. Furthermore, it would provide a kind of rudimentary visual type system for mathematics.
 
-Equation metadata would provide insight into what is invariant in an equation and what is the product of conventions such as positive and negative charge, origin, gauge, basis, and orientation (left or right handedness) of a vector space.
+Equation metadata would provide insight into what is invariant and fundamental in an equation and what is an artifact of conventions such as positive and negative charge, origin, gauge, basis, and orientation (left or right handedness) of a vector space.
 
 \subsection{Reasoning about physical systems and connections between them based on mathematical structure.}
 
