@@ -16,11 +16,16 @@
 
 \section{License}
 
-This work is licensed under the Creative Commons Attribution 3.0 Unported License. To view a copy of this license, visit \url{http://creativecommons.org/licenses/by/3.0/}.
+This work is licensed under the Creative Commons Attribution 3.0 Unported License.
+To view a copy of this license, visit \url{http://creativecommons.org/licenses/by/3.0/}.
 
 \section{Motivation}
 
-Equations are ubiquitous in mathematics and science. However, the way in which we store and reference equations suffers from severe flaws, such as the inability to transparently manipulate equations, the difficulty of connecting disparate systems by shared mathematical structure, and lack of insight into invariance.
+Equations are ubiquitous in mathematics and science.
+However, the way in which we store and reference equations suffers from severe flaws,
+such as the inability to transparently manipulate equations,
+the difficulty of connecting disparate systems by shared mathematical structure,
+and lack of insight into invariance.
 This hinders scientific inquiry in a variety of ways.
 
 \section{Use case}
@@ -31,45 +36,64 @@ Suppose I want to look up boundary conditions for an electric field to include i
 
 Most physicists will reach for their trusty E\&M books in this case.
 
-In the 2nd edition of David J. Griffiths' ``Introduction to Electrodynamis'', for example, a search of the index for ``Boundary conditions'' gives these equations (in SI units) on page 313:
+In the 2nd edition of David J. Griffiths' ``Introduction to Electrodynamics'', for example,
+a search of the index for ``Boundary conditions'' gives these equations (in SI units) on page 313:
 \begin{align*}
 D_{1_\bot} - D_{2_\bot} &= \sigma_f \\
 E_{1_\parallel} - E_{1_\parallel} &= 0
 \end{align*}
 
-The 3rd edition of John David Jackson's ``Classical Electrodynamics'' also uses SI units, and a quick check of the index gives:
+The 3rd edition of John David Jackson's ``Classical Electrodynamics'' also uses SI units,
+and a quick check of the index gives:
 \begin{align*}
 (\mathbf{D}_1 - \mathbf{D}_2)\cdot \mathbf{n} &= \sigma \\
 n \times (\mathbf{E}_2 - \mathbf{E}_1) &= 0
 \end{align*}
 
 The drawback is that these equations is that they are ``read-only.''
-They must be manually typed up for use in a \LaTeX\ document or word processing software, a laborious process even for relatively short equations.
+They must be manually typed up for use in a \LaTeX\ document or word processing software,
+a laborious process even for relatively short equations.
 They are even less suited for use in computational software.
 
-Ebooks and PDF files do not solve this problem, as they do not use \LaTeX\ or computable formats internally.
+Ebooks and PDF files do not solve this problem,
+as they do not use \LaTeX\ or computable formats internally.
 
-If the original document is written in \LaTeX\, however, it is \href{http://www.ctan.org/pkg/embedfile}{possible to attach the entire \LaTeX\ source code to a PDF}, although this is somewhat less than convenient and does not automatically unwrap macros into standard \LaTeX\ commands. This means that the authors must either avoid the use of macros or the user must copy all the necessary macros to use the equations.
+If the original document is written in \LaTeX\, however,
+it is possible to
+\href{http://www.ctan.org/pkg/embedfile}
+{attach the entire \LaTeX\ source code to a PDF},
+although this is somewhat less than convenient
+and does not automatically unwrap macros into standard \LaTeX\ commands.
+This means that the authors must either avoid the use of macros,
+or the user must copy all the necessary macros to use the equations.
 
 \subsection{Electronic resources.}
 
 Let's see if Wolfram Alpha's database has this.
-After all, it does a good job with \href{https://www.wolframalpha.com/input/?i=particle+in+a+magnetic+field}{other equations}.
+After all,
+it does a good job with
+\href{https://www.wolframalpha.com/input/?i=particle+in+a+magnetic+field}
+{other equations}.
 
 \url{https://www.wolframalpha.com/input/?i=electric+field+boundary+conditions}
 
 \begin{center}
-\includegraphics[scale=0.5]{wolfram-alpha-electric-field-boundary-conditions.png}
+\includegraphics[scale=0.7]{wolfram-alpha-electric-field-boundary-conditions.png}
 \end{center}
 
 Hm, that was a little disappointing.
 
-For quick and dirty information finding, Google works well. Let's see what the top results are.
+For quick and dirty information finding,
+Google works well.
+Let's see what the top results are.
+
 \url{https://www.google.com/search?q=electric+field+boundary+conditions}
 
-The first result, as of \today, is
-\url{http://farside.ph.utexas.edu/teaching/em/lectures/node59.html}
-. This website explains their origin from Gauss's Law and gives the equations as embedded png images:
+The
+\href{http://farside.ph.utexas.edu/teaching/em/lectures/node59.html}
+{first result}, as of \today,
+explains their origin from Gauss's Law
+and gives the equations as embedded png images:
 
 \begin{center}
 \includegraphics[scale=0.5]{img1337.png}
@@ -77,20 +101,26 @@ The first result, as of \today, is
 \includegraphics[scale=0.5]{img1344.png}
 \end{center}
 
-The second result is here: \url{http://www.antenna-theory.com/tutorial/electromagnetics/electric-field-boundary-conditions.php}
-
-This page distinguishes between a charged/uncharged surface and uses different notation. They also use images, gif in this case (although I converted them to png for inclusion in this document):
+The
+\href{http://www.antenna-theory.com/tutorial/electromagnetics/electric-field-boundary-conditions.php}
+{second result} distinguishes between a charged/uncharged surface and uses different notation.
+They also use images,
+gif in this case
+(although I converted them to png for inclusion in this document):
 \begin{center}
 \includegraphics[scale=0.3]{normalDequal.png}
 \includegraphics[scale=0.3]{normalEfieldWithCharge.png}
 \includegraphics[scale=0.3]{normalEfieldWithCharge.png}
 \end{center}
 
-Note that already there is considerable variation in notation. Furthermore, neither site includes any equations which can be parsed or modified without performing optical character recognition on the images; they are heavily read-only.
+Note that already there is considerable variation in notation.
+Furthermore, neither site includes any equations which can be parsed or modified
+without first performing optical character recognition on the images;
+they are profoundly read-only.
 
-What about Wikipedia?
-
-\url{https://en.wikipedia.org/wiki/Interface_conditions_for_electromagnetic_fields}
+What about
+\href{https://en.wikipedia.org/wiki/Interface_conditions_for_electromagnetic_fields}
+{Wikipedia}?
 
 This is the relevant equation.
 
@@ -100,7 +130,8 @@ This is the relevant equation.
 \includegraphics[scale=0.5]{wikipedia2.png}
 \end{center}
 
-Fortunately, there is embedded \LaTeX\ markup available under ``Edit Source''.
+Fortunately,
+there is embedded \LaTeX\ markup available under ``Edit Source''.
 
 \begin{verbatim}
 :<math>\mathbf{n}_{12} \times (\mathbf{E}_2 - \mathbf{E}_1)  = \mathbf{0} </math>
@@ -108,42 +139,120 @@ Fortunately, there is embedded \LaTeX\ markup available under ``Edit Source''.
 :<math>(\mathbf{D}_2 - \mathbf{D}_1) \cdot \mathbf{n}_{12} = \rho_{s} </math>
 \end{verbatim}
 
-This will only be sufficient if:
+This will be sufficient for entering into a paper if:
 \begin{enumerate}
 \item We want \LaTeX\ markup.
-\item the Wikipedia editor uses the \LaTeX\ markup correctly.
-\item the Wikipedia markup uses the same symbols and units system that we want to use.
+\item The Wikipedia editor uses the \LaTeX\ markup correctly.
+\item The Wikipedia markup uses the same symbols and units system that we want to use.
 \item We only want to typeset the equation, not use it for actual computation.
 \end{enumerate}
 
 \section{The problem.}
 
-Both the print and electronic resources have a number of deficiencies. In particular,
+Both the print and electronic resources have a number of deficiencies.
+In particular,
 \begin{itemize}
 \item Even electronic versions of equations are not generally suitable for using with computational tools.
-\item There is no reliable standard for representation of variables, even for the simplest and most common equations. Sometimes a surface charge is $\sigma$, sometimes it is $\sigma_f$, and sometimes it is $\rho_s$.
-\item There are a variety of different conventions in use that differ between physics and mathematics. For example, while the right-hand rule is fairly universal, the quantities $\phi$ and $\theta$ are \href{http://mathworld.wolfram.com/SphericalCoordinates.html}{swapped in spherical coordinates}. Similar problems exist for \href{http://mathworld.wolfram.com/EulerAngles.html}{Euler angles}.
-\item There are \href{https://en.wikipedia.org/wiki/Systems_of_units}{many units systems in use in the sciences}, several of which are popular enough to include in, say, the \href{http://lammps.sandia.gov/doc/units.html}{software of a given subfield}, and even if everyone were to standardize tomorrow there are centuries of scholarly literature that is expressed in different units. One of the most common examples is the differing forms of equations for SI (MKSA) and Gaussian (cgs) systems. There are valid arguments for using either system, or using the so-called ``natural units''. Converting between these systems, however, is tedious, and people should not have to spend much time on it.
-\item In much the same way as there are many unit systems, there are many equally valid \href{https://en.wikipedia.org/wiki/Gauge_fixing}{choices of gauge} in electrodynamics and a \href{https://en.wikipedia.org/wiki/Tensor_notation}{proliferation of tensor notations}. Dirac notation is another example of elegant notation that is frequently ``translated'' into more familiar notation for some manipulations.
-\item Most equations are embedded in a particular coordinate space and vector basis, such as the old standbys of Cartesian, cylindrical, or spherical coordinates. Often, a problem is much easier to attack in a favorable coordinate system. If transformation of coordinate systems was effortless, exploring alternatives solutions would become far less time-consuming and laborious. Wouldn't it be fun to try solving something in a non-holonomic basis?
-\item Many derivations in physics rely on substitutions that make the equations unitless, yet another related form of the equation that is difficult to find without looking up the original derivation. These kinds of change of variables are very common, but seldom tabulated systematically.
-\item Curves like conic sections have representations in Cartesian coordinates, polar coordinates, parametric coordinates, and a variety of other exotic options. These can be invaluable for simplifying analysis, but looking them up is time-consuming and re-deriving them is time-consuming and error-prone.
-\item No print or electronic resource is free from errors, and not everyone checks the errata page.
+\item There is no reliable standard for representation of variables,
+      even for the simplest and most common equations.
+      Sometimes a surface charge is $\sigma$,
+      sometimes it is $\sigma_f$,
+      and sometimes it is $\rho_s$.
+\item There are a variety of different conventions in use that differ between physics and mathematics.
+      For example,
+      while the right-hand rule is fairly universal,
+      the quantities $\phi$ and $\theta$ are
+      \href{http://mathworld.wolfram.com/SphericalCoordinates.html}
+      {swapped in spherical coordinates}.
+      Similar problems exist for
+      \href{http://mathworld.wolfram.com/EulerAngles.html}
+      {Euler angles}.
+\item There are
+      \href{https://en.wikipedia.org/wiki/Systems_of_units}
+      {many units systems in use in the sciences},
+      several of which are popular enough to include in, say, the
+      \href{http://lammps.sandia.gov/doc/units.html}
+      {software of a given subfield},
+      and even if everyone were to standardize tomorrow,
+      there are centuries of scholarly literature that is expressed in different units.
+      One of the most common examples is the differing forms of equations for SI (MKSA) and Gaussian (cgs) systems.
+      There are valid arguments for using either system,
+      or using the so-called ``natural units''.
+      Converting between these systems, however, is tedious,
+      and people should not have to spend much time on it.
+\item In much the same way as there are many unit systems,
+      there are many equally valid
+      \href{https://en.wikipedia.org/wiki/Gauge_fixing}
+      {choices of gauge}
+      in electrodynamics and a
+      \href{https://en.wikipedia.org/wiki/Tensor_notation}
+      {proliferation of tensor notations}.
+      Dirac notation is another example of an elegant notation
+      that is occasionally translated into more familiar notation for some manipulations.
+\item Most equations are embedded in a particular coordinate space and vector basis,
+      such as the old standbys of Cartesian, cylindrical, or spherical coordinates.
+      Often, a problem is much easier to attack in a favorable coordinate system.
+      If transformation of coordinate systems was effortless,
+      exploring alternatives solutions would become far less time-consuming and laborious.
+      (Wouldn't it be fun to try solving something in a non-holonomic basis?)
+\item Many derivations in physics rely on substitutions that make the equations unitless,
+      yet another related form of the equation that is difficult to find without looking up the original derivation.
+      These kinds of change of variables are very common,
+      but seldom tabulated systematically.
+\item Curves like conic sections have representations in Cartesian coordinates,
+      polar coordinates, parametric coordinates, and a variety of other exotic options.
+      These can be invaluable for simplifying analysis,
+      but looking them up is time-consuming
+      and re-deriving them is time-consuming and error-prone.
+\item No print or electronic resource is free from errors,
+      and not everyone checks the errata page.
+      Nor is the errata page always free from errors.
 \end{itemize}
 
-Together, these problems can make what should be simple tasks into a chore. There is frequently unnecessary friction, for example, in using results from two different papers or collaborating with a colleague who uses a different unit system. And how many scholars have lost hours of work by writing a paper with one choice of symbols and units and having to change them all for a journal submission?
+Together, these problems can make what should be simple tasks into a chore.
+There is frequently unnecessary friction,
+for example,
+in using results from two different papers,
+or collaborating with a colleague who uses a different unit system.
+And how many scholars have lost hours of work
+by writing a paper with one choice of symbols and units
+and then having to change them all for a journal submission?
 
 \section{What the solution should look like.}
 
-Instead of trying to solve these problems by convincing everyone to use the same units, gauges, and symbols, it is much more sane to leverage the ability of machines to do busywork.
+Instead of trying to convince everyone to use the same units, gauges, and symbols,
+it is saner to leverage the ability of machines to do busywork.
 
-An electronic database of equations with the relevant information could easily translate between any system of units, and could produce output suitable for any software, regardless of whether it is intended for use in a Fortran program, a \LaTeX\ document, or a web browser.
+An electronic database of equations with the relevant information could easily translate between any system of units,
+and could produce output suitable for any software,
+regardless of whether it is intended for use in a Fortran program,
+a \LaTeX\ document,
+or a web browser.
 
-If a transformation between these forms is non-trivial, the best thing is simply to have a human provide the input and store them both, and make them easy to find later. Rather than attempting to find the ``one true form'' of the equation, it should simply associate various useful formats.
+If a transformation between these forms is non-trivial,
+the best thing is simply to have a human provide the input and store them both,
+and make them easy to find later.
+Rather than attempting to find the ``one true form'' of the equation,
+it should simply associate various useful formats.
 
-Furthermore, it should take free-form input queries that would outpace any web search or paper index. This could include items like common names (``Maxwell equations''), units of variables (all equations with the left side in units of force), and even algebraic forms (all equations of the form \verb|a x^2 + b x + c|). Given sufficient heuristics and metadata (much of which will, admittedly, have to be entered manually), this is a solvable problem.
+Furthermore,
+it should take free-form input queries that would outpace any or paper index.
+It could also outpace a web search by taking advantage of limited input domain.
 
-Finally, it should be personal and collaborative. It should be easy to import the standard equations, but most people have specific, personalized needs and collaborate with a relatively small group of people, so this software should reflect that.
+Queries could include items like common names (``Maxwell equations''),
+units of variables
+(e.g. ``all equations with the left side in units of force''),
+and even algebraic forms (all equations of the form \verb|a x^2 + b x + c|).
+
+Given sufficient heuristics and metadata
+(much of which will, admittedly, have to be entered manually),
+this is a solvable problem.
+
+Finally, it should be personal and collaborative.
+It should be easy to import the standard equations,
+but most people have specific, personalized needs,
+and collaborate with a relatively small group of people,
+so the software should reflect that.
 
 \section{Features}\label{sec:features}
 
@@ -151,59 +260,131 @@ A satisfactory electronic equation reference document would:
 
 \begin{itemize}
 \item Store equation database locally (network connectivity not required).
-\item Provide a means to write explanatory text for symbols or sub-expressions in the relevant equations, which most texts do anyway as a matter of course. For example, $\vec{L} = I \vec{\omega}$, where $\vec{L}$ is angular momentum, $I$ is the moment of inertia, and $\vec{\omega}$ is the angular velocity.
-\item Store representations in at least one format of a variety of options (Unicode UTF-8 plaintext, \LaTeX, MathML, OpenMath, etc.) as well as a way to add more specific forms. For example, one might be a \LaTeX\ expression with the vector quantities having arrows like this: $\vec{r}$; and another with vector quantities bolded like this: $\mathbf{r}$.
-\item Provide the ability to optionally store and access other formats (e.g. Mathematica, MS Word, Matlab code, Fortran code, C code etc.)
-\item Call existing software to convert between representations so that not everything has to be converted manually. This falls into two categories:
-\begin{enumerate}
-\item Conversions that are essentially just formatting conversions. For example, while \LaTeX\ and MathML have some very apparent differences, they both require only enough information to typeset an equation, not actually evaluate it. The automatically generated markup could subsequently be tweaked by hand.
-\item Conversions from a typesetting or markup language like \LaTeX\ or MathML to an expression that can actually be evaluated; one that you can plug in numbers and get an answer. Some equations are simple enough that a conversion to, say, C code is trivial -- something just using trig, exponents, and arithmetic functions, for example. Others will be sufficiently abstract as to require manual conversion or avoiding a computable format at all. (Alternately, a link to some remotely hosted code may be in order; \hyperref[itm:linking]{see below}.) Incidentally, Stephen Wolfram (of Mathematica fame) had this \href{http://www.stephenwolfram.com/publications/recent/mathml/mathml1.html} {to say} about this kind of conversion.
-\begin{quote}
-Unlike with ordinary human natural language, it is actually possible to take a very close approximation to familiar mathematical notation, and have a computer systematically understand it. That's one of the big things that we did about five years ago in the third version of Mathematica. And at least a little of what we learned from doing that actually made its way into the specification of MathML. 
-\end{quote}
-\end{enumerate}
-\item Perform queries based on popular names, form of equations, related equations, commonly used symbols.
-\item Perform queries based on similarity to a given input.
-\item Provide the option to perform simple substitutions (so a query for $a+b^2$ could return an equation stored as $x+y^2$, and one could specify substitution rules so that it outputs $m + n^2$)
-\item Provide the option to search for algebraically equivalent forms (e.g. $a(b+c)$ could return $a b + a c$). Note that this would only work for equations that had unambiguous computable forms provided, so that the software could call, e.g. Sage, Maxima, or Mathematica to determine whether or not the forms are algebraically equivalent. MathML or \LaTeX\ compilers will happily typeset algebraically ambiguous or uncomputable gibberish.
-\item Provide the option to search for algebraically equivalent forms with simple substitutions (e.g.  $a(b+c)$ could return $ x y + x z$)
-\item Provide the option to choose units system, so that a single equation would have both cgs and SI forms available, for example.
+\item Provide a means to write explanatory text for symbols or sub-expressions in the relevant equations,
+      which most texts do anyway as a matter of course.
+      For example, $\vec{L} = I \vec{\omega}$, where
+      $\vec{L}$ is angular momentum,
+      $I$ is the moment of inertia, and
+      $\vec{\omega}$ is the angular velocity.
+\item Store representations in at least one format of a variety of options
+      (Unicode UTF-8 plaintext, \LaTeX, MathML, OpenMath, etc.)
+      as well as a way to add more specific forms.
+      For example, one might be a \LaTeX\ expression with the vector quantities having arrows like this:
+      $\vec{r}$;
+      and another with vector quantities bolded like this:
+      $\mathbf{r}$.
+\item Provide the ability to optionally store and access other formats
+      (e.g. Mathematica, MS Word, Matlab code, Fortran code, C code etc.)
+\item Call existing software to convert between representations,
+      so that not everything has to be converted manually.
+      This falls into two categories:
+      \begin{enumerate}
+      \item Conversions that are essentially just formatting conversions.
+            For example, while \LaTeX\ and MathML have some very apparent differences,
+            they both require only enough information to typeset an equation,
+            not actually evaluate it.
+            The automatically generated markup could subsequently be tweaked by hand.
+      \item Conversions from a typesetting or markup language like \LaTeX\ or MathML to an expression that can actually be evaluated;
+            one that you can plug in numbers and get a numeric result.
+            Some equations are simple enough that a conversion to, say, C code is trivial
+            -- something just using trig, exponents, and arithmetic functions, for example.
+            Others will be sufficiently abstract as to require manual conversion or avoiding a computable format at all.
+            (Alternately, a link to some remotely hosted code may be in order;
+            \hyperref[itm:linking]{see below}.)
+            Incidentally, Stephen Wolfram (of Mathematica fame) had this
+            \href{http://www.stephenwolfram.com/publications/recent/mathml/mathml1.html}{to say}
+            about this kind of conversion.
+                \begin{quote}
+                Unlike with ordinary human natural language,
+                it is actually possible to take a very close approximation to familiar mathematical notation,
+                and have a computer systematically understand it.
+                That's one of the big things that we did about five years ago in the third version of Mathematica.
+                And at least a little of what we learned from doing that actually made its way into the specification of MathML. 
+                \end{quote}
+      \end{enumerate}
+\item Search for equations by popular name and subfield.
+\item Search for equations by regular expression.
+\item Search for equations by the symmetries they obey and mathematical groups they belong to.
+\item Enter an equation and get back structurally similar and related equations.
+\item Enter some symbols and get equations back that use those symbols.
+\item Provide the option to perform simple substitutions
+      (so a query for $a+b^2$ could return an equation stored as $x+y^2$,
+      and one could specify substitution rules so that it outputs $m + n^2$)
+\item Provide the option to search for algebraically equivalent forms
+      (e.g. $a(b+c)$ could return $a b + a c$).
+      Note that this would only work for equations that had unambiguous computable forms provided,
+      so that the software could call,
+      e.g. Sage, Maxima, or Mathematica to determine whether or not the forms are algebraically equivalent.
+      (MathML renderers and \LaTeX\ compilers will happily typeset algebraically ambiguous or uncomputable gibberish.)
+\item Provide the option to search for algebraically equivalent forms with simple substitutions
+      (e.g.  $a(b+c)$ could return $ x y + x z$)
+\item Provide the option to choose units system,
+      so that a single equation would have both cgs and SI forms available, for example.
 \item Allow extensions to specify new unit systems or gauges.
-\item Link to internal and external references (refer to another equation in the same database, jump to a specified page of a local or remote PDF or ebook, standard html-style links to  urls of relevant websites or source code implementations, digital object identifiers, bibtex references, etc.) \label{itm:linking}
+\item Link to internal and external references
+      (refer to another equation in the same database,
+      jump to a specified page of a local or remote PDF or ebook,
+      standard html-style links to  urls of relevant websites or source code implementations,
+      digital object identifiers (DOIs),
+      bibtex references, etc.) \label{itm:linking}
 \end{itemize}
 
 \section{Some objections.}
 
 \subsection{There's more to physics and math than equations, you know.}
 
-Yes, and people did complex math for centuries without nice modern algebraic notation, but equations do provide a very lovely and compact way to represent relationships between variables.
+Yes, and people did complex math for centuries without nice modern algebraic notation,
+but equations do provide a very lovely and compact way to represent relationships between variables.
 
-Once we've got an easy and reliable way to find the equations we want, we can spend more time reasoning about whether the equation is applicable, what approximations to make, what the physical interpretation is, and how that interpretation squares with experiment and physical intuition.
+Once we've got an easy and reliable way to find the equations we want,
+we can spend more time reasoning about whether the equation is applicable,
+what approximations to make,
+what the physical interpretation is,
+and how that interpretation squares with experiment and physical intuition.
 
-\subsection{Equations without context are dangerous and people will use them when they are not really applicable or assume what they are trying to prove, i.e.\ use circular reasoning.}
+\subsection{Equations without context are dangerous,
+            and people will use them when they are not applicable or assume what they are trying to prove,
+            i.e.\ use circular reasoning.}
 
-A valid concern, which is why it's important to write explanatory text about each symbol and link to more complete discussions.
+A valid concern,
+which is why it's important to write explanatory text about each symbol
+and link to more complete discussions.
 
-In any case, people already use equations when they aren't applicable, and this is generally because they don't want to put in the effort to look up the context of the equation. Properly used, this software could help mitigate this problem.
+In any case, people already misuse equations,
+and this is generally because they don't want to put in the effort to look up the context of the equation.
+Properly used, this software could help mitigate this problem.
 
 \subsection{Why ``equations'' and not ``expressions'' or ``formulas''?}
 
-This is just a nomenclature thing.
+This is just nomenclature.
 
-I assume that this software could work for mathematical expressions in general, identities, approximations, chemical formulas, etc. Most of the time, though, we need to know about relationships between variables, so ``equations'' are what most people think of and use regularly.
+I assume that this software could work for mathematical expressions in general,
+identities, approximations, chemical formulas, etc.
+Most of the time, though,
+we need to know about relationships between variables,
+so ``equations'' are what most people think of and use regularly.
 
 \subsection{Making it easier to change conventions will encourage fragmentation.}
 
-Possibly, but it's pretty badly fragmented already. If there is a reliable system to automatically change systems of units and the like, fragmentation will not matter.
+Possibly, but it's pretty badly fragmented already.
+If there is a reliable system to automatically convert systems of units and other conventions,
+fragmentation will not matter as much.
 
-Furthermore, such a system would encourage using a standard form when writing papers and textbooks, since everyone could convert to their favorite set of conventions without difficulty.
+Furthermore,
+such a system would encourage using a standard form when writing papers and textbooks,
+since everyone could convert to their favorite set of conventions without difficulty.
 
 \subsection{Is it really so much work to use a web search or a book index?}
 
 Yes.
 
-Try doing a \href{https://www.google.com/search?q=%22L+%3D+r+%C3%97+P%22&oq=%22L+%3D+r+%C3%97+P%22}{Google search for $L = r \times p$}. \href{http://symbolab.com/search?origin=suggestion&query=L%3Dr%5Ctimes%20p}{Symbolab works somewhat better} for this, as does \href{https://www.google.com/search?&q=%22L+%3D+r+%5Ctimes+P%22&oq=%22L+%3D+r+%5Ctimes+P%22
-}{searching for likely \LaTeX\ markup}.
+Try doing a
+\href{https://www.google.com/search?q=%22L+%3D+r+%C3%97+P%22&oq=%22L+%3D+r+%C3%97+P%22}
+{Google search for $L = r \times p$}.
+\href{http://symbolab.com/search?origin=suggestion&query=L%3Dr%5Ctimes%20p}
+{Symbolab works somewhat better} for this, as does
+\href{https://www.google.com/search?&q=%22L+%3D+r+%5Ctimes+P%22&oq=%22L+%3D+r+%5Ctimes+P%22}
+{searching for likely \LaTeX\ markup}.
 
 This is just a simple example of hard it is to find even a basic equation with relatively few ways to express it.
 
@@ -214,71 +395,174 @@ As for books, if you can get everything you need from one book, great. The ones 
 \subsection{Surely there are people already working on this, or something similar?}
 
 There are some
-\href{http://symbolab.com/}{interesting} \href{http://latexsearch.com/}{websites} \href{http://www.dessci.com/en/reference/searching/math-searching.htm}{out}
-\href{http://www.equationsheet.com/}{there},
-but they're more about searching existing websites and scholarly literature and don't accomplish more than a few of the \hyperref[sec:features]{features mentioned above}.
+\href{http://symbolab.com/}
+{interesting}
+\href{http://latexsearch.com/}
+{websites}
+\href{http://www.dessci.com/en/reference/searching/math-searching.htm}
+{out}
+\href{http://www.equationsheet.com/}
+{there},
+but they're more about searching existing websites and scholarly literature
+and don't accomplish more than a few of the \hyperref[sec:features]{features mentioned above}.
 
-Wolfram Alpha is probably the closest right now, but its main goal is much broader than storing equations. The lack of a local, user-controlled database is probably the biggest problem, as is the tendency to only show the ``one true form'' of an equation.
+Wolfram Alpha is probably the closest right now,
+but its goals are broader than storing equations.
+The lack of a local, user-controlled database is probably the biggest problem,
+as is the tendency towards returning the ``one true form'' of an equation.
 
-\href{http://www.w3.org/Math/}{MathML} and \href{http://www.openmath.org/}{OpenMath} are projects that employ similar ideas, although MathML is focused mainly on web browsers and OpenMath is still unfinished. (The OpenMath website lists only 58 members, many of whom are professors that work on it in their spare time.)
+\href{http://www.w3.org/Math/}
+{MathML}
+and
+\href{http://www.openmath.org/}
+{OpenMath} are projects that employ similar ideas,
+although MathML is focused mainly on web browsers and OpenMath is still unfinished.
+(The OpenMath website lists only 58 members,
+many of whom are professors that work on it in their spare time.)
 
-More importantly, OpenMath is working towards a standard for representing the mathematical objects, not a working piece of software performing the functions mentioned above.
+More importantly,
+OpenMath is working towards a standard for representing the mathematical objects for computer algebra systems,
+not a working piece of software performing the functions mentioned above.
 
-The database of equations could certainly use the OpenMath standard as another representation --- a reliable, standardized representation --- but it would not require it to work.
+The database of equations could certainly use the OpenMath standard as another representation
+--- a reliable, standardized representation ---
+but it would not require it to work.
 
-\href{http://www.mathjax.org/}{MathJax} is doing great things for putting math on the web, but not so much for storage and retrieval.
+\href{http://www.mathjax.org/}
+{MathJax} is doing great things for putting math on the web,
+but not so much for storage and retrieval.
 
-There are also efforts to make derivations automatic. This is a laudable goal, but most people are more interested in the actual results and where they are applicable than rigorously defining the actual mechanism to derive the results.
+There are also efforts to make derivations automatic,
+i.e. proof assistants and automated theorem proving.
+These efforts are intriguing,
+but physicists at any rate are more interested in the equations themselves and where they are applicable
+than rigorously defining the mechanism to derive the results.
 
 \subsection{Would people actually use this?}
 
-I would, and I have \href{http://www.researchgate.net/post/I_am_looking_for_an_equation_database_or_digital_list_of_equations}{reason to believe} \href{http://productforums.google.com/forum/#!topic/websearch/lVJiyCSl-xk}{other people would, too}.
+I would, and I have
+\href{http://www.researchgate.net/post/I_am_looking_for_an_equation_database_or_digital_list_of_equations}
+{reason to believe}
+\href{http://productforums.google.com/forum/#!topic/websearch/lVJiyCSl-xk}
+{other people would, too}.
 
 \subsection{This is way too hard.}
 
-It's really not;  \hyperref[sec:ambitious]{see below} for the actually hard problems. The individual components have existed for decades, they just haven't been tied together yet. I regularly use a \href{https://en.wikipedia.org/wiki/Recoll}{desktop search tool} to index my various documents and search them, it just isn't geared to equations and so doesn't have the specific features I would like.
+It's really not;
+\hyperref[sec:ambitious]
+{see below} for the actually hard problems.
+The individual components have existed for decades,
+they just haven't been tied together yet.
+I regularly use a
+\href{https://en.wikipedia.org/wiki/Recoll}
+{desktop search tool} to index and query my local documents,
+but it isn't geared to equations and hence doesn't have the specific features I would like.
 
 \subsection{Talk is cheap. Show me the code/data.}
 
 There is an example of a minimal prototype/proof of concept on GitHub here:
 
-\href{https://github.com/nbeaver/equation-manager-prototype}{https://github.com/nbeaver/equation-manager-prototype}
+\url{https://github.com/nbeaver/equation-manager-prototype}
 
-\subsection{There are too many equations. Searching for them would be hopeless.}
+\subsection{There are too many equations. Searching them all would be hopeless.}
 
-While there are a large (though finite) number of equations of a given finite size, only a tiny subset of them are useful.
+There number of well-formed formulas is indeed infinite,
+(though countably so by Gödel numbering)
+but only a finite and relatively tiny subset of them are useful or interesting.
 
-For comparison, there are a lot of Unicode characters, but writing a \href{https://mail.python.org/pipermail/python-announce-list/2003-April/002183.html}{program to search for the one you want} is standard. The \href{http://sources.debian.net/src/unicode/0.9.7/unicode}{code for querying the database} is pretty simple, too.
+For comparison,
+there are a lot of Unicode characters,
+and more on the way,
+but writing a
+\href{https://mail.python.org/pipermail/python-announce-list/2003-April/002183.html}
+{program to search for the one you want} is not unusual.
+The
+\href{http://sources.debian.net/src/unicode/0.9.7/unicode}
+{code for querying the database} is pretty simple, too.
 
 \section{More ambitious possibilities.}\label{sec:ambitious}
 
 \subsection{Semantics of representation and elimination of ambiguity.}
 
-Ideally, one would add semantics to equations. This could help avert the namespace problem which is rampant in physics.
+Mathematical software is traditionally poor at retaining semantics.
+It's easy, for example,
+to simulate a universe with physical laws that do not match this universe.
+However, some level of semantic information can be retained by,
+for example, respecting consistent dimensionality and distinguishing indices from regular variables.
 
-For example, introductory kinematics generally uses $m$ for mass and $\mu$ for coefficients of friction. However, many upper-level mechanics books use $\mu$ for reduced mass. This can get awkward if you want to use reduced mass in a problem with coefficients of friction.
+This could alleviate the namespace problem which is rampant in physics.
+For example,
+introductory kinematics generally uses $m$ for mass and $\mu$ for coefficients of friction.
+However, many upper-level mechanics books use $\mu$ for reduced mass.
+This can get awkward if you want to use reduced mass in a problem with coefficients of friction.
 
-If the semantics could be unambiguously specified, the symbols peculiar to the problem wouldn't matter as much, and symbol collisions could be detected and averted more easily, perhaps even automatically if the software were given a list of candidates for symbolizing a quantity.
+The problem gets much worse when different subfields of a discipline try to use each other's equations.
+(There's only so much subscripts can do to increase the number of unique symbols,
+especially if subscripts and superscripts are already used for tensor notation.
+There are \hyperref[color-coding]{other ways} to distinguish quantities, however.)
+
+If the dimensions of each quantity were unambiguously specified,
+the symbols peculiar to the problem wouldn't matter as much,
+and symbol collisions could be detected and averted automatically
+if the software had a suitable list of candidates for representing each quantity.
 
 \subsection{Automatically converting existing documents.}
 
-It might possible to identify each equation in, for example, a \LaTeX\ document and automatically convert the units from, say, SI to cgs or vice versa.
+It might possible to identify each equation in,
+say, a \LaTeX\ document,
+and automatically convert the units from,
+say, cgs to SI.
 
-In practice, however, because of things like \LaTeX\ macros and ambiguity of representation, automatic conversion tends to be fragile. Some transformations are best done manually or with the aid of ad-hoc search-and-replace text-processing tools.
+In practice, however,
+because of things like \LaTeX\ macros and multiple kinds of cgs
+-- does that equation need a factor of $c$ or $c^2$? --
+automatic conversion tends to be fragile.
+Some transformations are best done manually,
+or at least semi-manually.
 
-A more promising possibility is to develop standards like OpenMath with the goal of making it trivial to shift between notations and conventions. This will be largely invisible in terms of form, but such functionality will make collaboration and reuse easier and more robust.
+A more promising possibility is to develop and use standards like OpenMath
+with the goal of making it trivial to shift between notations and conventions.
+This will be largely invisible in terms of form,
+but such functionality will make collaboration and reuse easier and more robust.
 
-For example, a textbook with basic semantics of unit systems built-in could be used by an engineering class with customary units, an introductory physics class with SI units, or as a supplement to an existing work in cgs units with no confusion or tedious manual conversion.
+For example,
+a textbook with self-describing unit systems built-in could be used by
+an engineering class with customary units,
+an introductory physics class with SI units,
+or as a supplement to an existing work in cgs units,
+all without confusion or tedious manual conversion.
 
-It could also link each use of an equation back to the derivation as a kind of dependency graph that makes the hierarchical structure of the mathematics explicit.
+\subsection{Insight into dependency structure.}
+
+Hiding behind every derived equation is a dependency graph leading all the way back to first principles.
+
+Equations that ``know'' how they are derived can explicitly show which assumptions they require.
+
+It could make it trivial to answer questions like,
+``Is this equation linear in $\theta$?``
+or
+``Does this equation require isotropic permittivity?''
+or
+``Does this equation hold for non-Euclidean geometries?''
+or
+``How would this equation be different if the sign convention for charge were reversed?''
 
 \subsection{``Fingerprints'' for equivalent mathematical expressions.}
 
-Regardless of the notation used in, for example, the Pythagorean theorem, there are always three independent variables. There is also always two operations (self-multiplication and addition), or three if we count equality as an operation. Also, the commutativity properties means that symmetry groups can be used to describe the equation.
+Regardless of the notation used in,
+for example,
+the Pythagorean theorem,
+there are always three independent variables.
+There is also always two operations (self-multiplication and addition),
+or three if we count equality as an operation.
+Also, the commutativity properties means that symmetry groups can be used to describe the equation.
 
-These examples of notation-invariant properties could potentially be tabulated and systematized as a kind of fingerprint for a large number of commonly-used expressions, which could make recognizing mathematical patterns easier, since familiarity with the particular notation would not be necessary to recognize the pattern.
+These examples of notation-invariant properties could potentially be tabulated and systematized
+as a kind of fingerprint for a large number of commonly-used expressions,
+which could make recognizing mathematical patterns easier,
+since familiarity with the particular notation would not be necessary to recognize the pattern.
 
-Ideally the fingerprint would be robust enough to help identify a given equation's sub-expression as equivalent or related to another equation.
+Ideally the fingerprint would be robust enough to help identify the components of a complex equation's sub-expressions with simpler equations.
 
 For example, an expression of the form
 \[ a = \frac{b c}{b +c} \]
@@ -293,15 +577,27 @@ and would extend to helping identify sums of any number of reciprocals.
 
 \subsection{New ways of seeing and reasoning about equations.}
 
-Once an equation can be parsed into a machine-manipulable format, there are many possibilities, including color-coding, dependency graphs to keep track of which parts depend on a given quantity, and whether it is separable into functions of the variables it depends on.
+Once an equation can be parsed into a machine-manipulable format,
+there are many possibilities,
+including color-coding,
+dependency graphs to keep track of which parts depend on a given quantity,
+and whether it is separable into functions of the variables it depends on.
 
-For example, Richard Feynman had \href{https://en.wikipedia.org/wiki/Grapheme-color_synesthesia}{grapheme-color synesthesia}.
+For example, Richard Feynman had
+\href{https://en.wikipedia.org/wiki/Grapheme-color_synesthesia}
+{grapheme-color synesthesia}.
 
 \begin{quote}
-``When I see equations, I see the letters in colors – I don't know why. As I'm talking, I see vague pictures of Bessel functions from Jahnke and Emde's book, with light-tan j's, slightly violet-bluish n's, and dark brown x's flying around. And I wonder what the hell it must look like to the students."
+``When I see equations, I see the letters in colors – I don't know why.
+As I'm talking,
+I see vague pictures of Bessel functions from Jahnke and Emde's book,
+with light-tan j's,
+slightly violet-bluish n's,
+and dark brown x's flying around.
+And I wonder what the hell it must look like to the students."
 \end{quote}
 
-It might have looked something like this.
+Feynman's might have seen something like this.
 
 \newcommand{\nF}{\textcolor{DarkOrchid}{n}}
 \newcommand{\xF}{\textcolor{Brown}{x}}
@@ -312,20 +608,43 @@ It might have looked something like this.
 \]
 \unboldmath
 
-With sufficient metadata about an equation, it would be possible to write a filter that would automatically color-code the expression. For example, functions, variables, constants, and integers (e.g. indices) could each have their own color.
+\label{color-coding}
+With sufficient metadata about an equation,
+one could automatically color-code the expression.
+Functions, variables, constants, and indices could each have their own color.
 
-Color-coding would provide an extra degree of freedom for defining quantities and dramatically increase the information density of an equation. Furthermore, it would provide a kind of rudimentary visual type system for mathematics.
+Color-coding would provide an extra degree of freedom for distinguishing quantities
+and dramatically increase the information density of an equation.
+Furthermore, it would provide a kind of rudimentary visual type system for mathematics.
+Adding a variable to an index would be obviously wrong,
+for example.
 
-Equation metadata would provide insight into what is invariant and fundamental in an equation and what is an artifact of conventions such as positive and negative charge, origin, gauge, basis, and orientation (left or right handedness) of a vector space.
+Equation metadata would provide insight into what is invariant and fundamental in an equation
+and what is an artifact of conventions such as positive and negative charge,
+origin, gauge, basis, and orientation (left or right handedness) of a vector space.
 
 \subsection{Reasoning about physical systems and connections between them based on mathematical structure.}
 
-The practical purpose of associating equivalent forms is to save time and effort. The greater purpose is to make explicit connections between seemingly disparate systems.
+The practical purpose of associating equivalent forms is to save time and effort.
+The greater purpose is to make explicit connections between seemingly disparate systems.
 
-There are many famous examples of the same equation describing seemingly unrelated phenomena. For example, the scalar wave equation describes vibrations in both solids and fluids, and similar equations describe electromagnetic waves and quantum mechanical wavefunctions. The hydraulic analogy provides a useful and intuitive (though potentially misleading) way to reason about electronic circuits.
+There are many famous examples of the same equation describing seemingly unrelated phenomena.
+For example,
+the scalar wave equation describes vibrations in both solids and fluids,
+and similar equations describe electromagnetic waves and quantum mechanical wavefunctions.
+The hydraulic analogy provides a useful and intuitive
+(though potentially misleading)
+way to reason about electronic circuits.
 
-However, such connections are not isolated to famous results; such connections are discovered or rediscovered regularly. Such connections could be made more quickly and rigorously if governing equations, symmetries, and boundary conditions were explicitly stated in a way that could be compared to other systems to test for equivalence.
+However,
+such connections are not isolated to famous results;
+such connections are discovered or rediscovered regularly.
+Such connections could be made more quickly and rigorously if governing equations,
+symmetries, and boundary conditions were explicitly stated in a way that could be compared to other systems to test for equivalence.
 
-Physicists delight in the rich mathematical structure of the systems they study. Sadly, they are all too often divided from the mathematicians and from each other by mere notation. By unifying and linking the language of mathematics, we can avoid reduplication of effort and make explicit connections which were otherwise unknown or neglected.
+Physicists delight in the rich mathematical structure of the systems they study.
+Sadly, they are all too often divided from the mathematicians and from each other by mere notation.
+By unifying and linking the language of mathematics,
+we can avoid reduplication of effort and make explicit connections which were otherwise unknown or neglected.
 
 \end{document}
