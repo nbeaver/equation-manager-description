@@ -1,5 +1,6 @@
 # Ignore vim swap files
 *.swp
+*.swo
 # Ignore LaTeX temp files
 *.aux
 *.bbl
@@ -12,6 +13,7 @@
 *.pdf
 *.dvi
 *.ps
+*.toc
 # Ignore Open Document spreadsheets
 *.ods
 # Ignore LibreOffice lock files, e.g. .~lock.name_of_spreadsheet.ods#
@@ -19,3 +21,6 @@
 *.csv#
 # Ignore other temp files
 .md~
+#
+tex4ht/
+#
