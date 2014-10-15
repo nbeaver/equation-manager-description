@@ -638,17 +638,21 @@ Feynman might have seen something like this.
 
 \label{color-coding}
 With sufficient metadata about an equation,
-one could automatically color-code the expression.
-Functions and operators,
+software could automatically color-code the expression by assigning different colors to
+functions and operators,
 independent free variables,
 dependent free variables,
-bound (a.ka. ``dummy'') variables or indices,
-and constants could each have their own color.
+and bound (a.ka. ``dummy'') variables or indices.
+
+This makes it faster and easier to answer questions like,
+``How many degrees of freedom does this equation have?''
+or
+``How much of this equation could be replaced by a numeric constant?''
 
 Here is an example coloring scheme:
 
 \begin{description}
-\item[Well-defined functions and operators] are \textcolor{Brown}{brown}.
+\item[Well-defined functions and operators] are \textcolor{Plum}{purple}.
       This includes elementary binary arithmetic operations like $+$, $-$, $\times$, and $\div$;
       abstractions of them like $\sum$, $\prod$, and the $\frac{\hspace{1em}}{\hspace{1em}}$ in $\frac{ab}{cd}$;
       integer-only operations like factorial $!$ and modulo $n$,
@@ -695,7 +699,7 @@ Here is an example coloring scheme:
       Similarly,
       while drag coefficients are constant for a given object at a given Reynolds number,
       they are freely variable components of the drag equation.)      
-\item[Indices and other bound variables] are \textcolor{darkgray}{gray}. This includes $k$ in $\sum_{k = 0}^{100}$ and $x$ in $\int \! x^2 \, \mathrm{d}x$.
+\item[Indices and other bound variables] are \textcolor{Gray}{gray}. This includes $k$ in $\sum_{k = 0}^{100}$ and $x$ in $\int \! x^2 \, \mathrm{d}x$.
       If its value is assigned and constrained in a well-defined way,
       but also varies,
       and the choice of symbol is completely arbitrary,
@@ -724,9 +728,9 @@ Despite these shortcomings, it is sufficient for illustrating the usefulness of 
 \newcommand{\nc}{\textcolor{blue}} % named constants
 \newcommand{\bv}{\textcolor{Gray}} % indices and other bound variables
 
-$\op{a} \fv{a} \iv{a} \nc{a} \bv{a}$
+%$\op{a} \fv{a} \iv{a} \nc{a} \bv{a}$
 
-%TODO Color-code these equations.
+%DONE Color-code these equations.
 
 Compton scattering
 
@@ -774,7 +778,11 @@ Binomial coefficients
 }
 =
 \op{
-  \prod_{\bv{i} = 1}^{\iv{k}}
+  \prod_{
+    \bv{i} \, \textcolor{black}{= \, 1}
+  }^{
+    \iv{k}
+  }
 }
 \op{
   \frac{
@@ -793,14 +801,18 @@ Geometric series
 \[
 \fv{a}
 \op{+} \fv{a}\iv{r} 
-\op{+} \fv{a} \iv{r}^2
-\op{+} \fv{a} \iv{r}^3
+\op{+} \fv{a} \iv{r}^{\op{2}}
+\op{+} \fv{a} \iv{r}^{\op{3}}
 \op{+}
 \cdots
-\op{+} \fv{a} \iv{r}^{\fv{n} \op{-} 1}
+\op{+} \fv{a} \iv{r}^{\op{\fv{n} \op{-} 1}}
 =
 \op{
-  \sum_{\bv{k} = 0}^{\fv{n}-1}
+  \sum_{
+    \bv{k} \, \textcolor{black}{= \, 0}
+  }^{
+    \fv{n} \op{-} 1
+  }
 }
 \fv{a} \iv{r}^{\bv{k}}
 =
@@ -879,105 +891,147 @@ Drag force acting on a projectile
 \fv{\vec{F_D}}
 =
 \op{-}
+\iv{\hat{v}}
 \frac{1}{2}
 \fv{C_D}(
   \fv{\iv{v}}
 )
 \fv{\rho}
 \fv{A}
-\iv{v}
-\iv{\vec{v}}
+\iv{v}^{\op{2}}
 \]
 
 Van der Waals gas:
 \[
 \left(
-  p +
+  \fv{p}
+  +
   \frac{
-    n^2 a
+    \fv{n}^{\op{2}}
+    \fv{a}
   }{
-    V^2
+    \fv{V}^{\op{2}}
   }
 \right)
 \left(
-  V - n b
+  \fv{V}
+  \op{-}
+  \fv{n}
+  \fv{b}
 \right)
 =
-n R T
+\fv{n}
+\nc{R}
+\iv{T}
 \]
 
 Trapezoidal rule
 
 \[
-\int_{a}^{b}
+\op{
+  \int_{
+    \fv{a}
+  }^{
+    \fv{b}
+  }
+}
 \! % reduce spacing
-f(x)
+\iv{f}(\bv{x})
 \, % add extra space
-\mathrm{d} x
+\op{\mathrm{d}} \bv{x}
 \approx
 (
-  b - a
+  \fv{b} 
+  \op{-}
+  \fv{a}
 )
 \left(
   \frac{
-    f(a)
-    +
-    f(b)
+    \iv{f}(\fv{a})
+    \op{+}
+    \iv{f}(\fv{b})
   }{
     2
   }
 \right)
 \]
 
-Bohr model radius
+Bohr model radius of electron orbit
 
 \[
-r_n
+\fv{r}_{\iv{n}}
 =
 \frac{
-  n^2
-  \hbar^2
+  \iv{n}^{\op{2}}
+  \nc{\hbar}^{\op{2}}
 }{
-  Z
-  k_\mathrm{e}
-  e^2
-  m_\mathrm{e}
+  \fv{Z}
+  \nc{k_\mathrm{e}}
+  \nc{e}^{\op{2}}
+  \nc{m_\mathrm{e}}
 }
 \]
 
 Rydberg formula for hydrogen
 
 \[
-\frac{1}{\lambda}
+\op{
+  \frac{
+    1
+  }{
+    \fv{\lambda}
+  }
+}
 =
 \frac{
-  m_\text{e} e^4
+  \nc{m_e}
+  \nc{e}^{\op{4}}
 }{
   8
-  \varepsilon_0^2
-  h^3
-  c
+  \nc{\varepsilon_0}^{\op{2}}
+  \nc{h}^{\op{3}}
+  \nc{c}
 }
 \left(
-  \frac{1}{n_1^2}
-  -
-  \frac{1}{n_2^2}
+  \fv{n_1}^{\op{-2}}
+  \op{-}
+  \fv{n_2}^{\op{-2}}
 \right)
 \]
 
 Virial theorem
 
 \[
-2 \left\langle T \right\rangle = -\sum_{k=1}^N \left\langle \mathbf{F}_k \cdot \mathbf{r}_k \right\rangle
+2
+\op{
+  \left\langle
+    \fv{T}
+  \right\rangle
+}
+=
+\op{-}
+\op{
+  \sum_{
+    \bv{k} \textcolor{black}{= 1}
+  }^{
+    \fv{N}
+  }
+}
+\op{
+  \left\langle
+    \iv{\vec{F}_{\bv{k}}}
+    \op{\cdot}
+    \fv{\vec{r}_{\bv{k}}}
+  \right\rangle
+}
 \]
 
 %TODO Cut down on the number of "could"s, "would"s, and "should"s.
 
 Color-coding provides an extra degree of freedom for distinguishing quantities
-and dramatically increase the information density of an equation.
+and increasing the information density of an equation.
 Furthermore, it is a kind of rudimentary visual type system for mathematics.
-Adding a variable to an index is obviously wrong,
-for example.
+Symmetries become more apparent.
 
 Equation metadata provides insight into what is invariant and fundamental in an equation
 and what is an artifact of conventions such as positive and negative charge,
