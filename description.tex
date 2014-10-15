@@ -6,6 +6,7 @@
 \usepackage{listings}
 \usepackage{hyperref}
 \usepackage[usenames,dvipsnames]{color}
+\definecolor{darkgray}{rgb}{0.3,0.3,0.3}
 \usepackage{graphicx} %for pngs
 \usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
 \author{Nathaniel Beaver}
@@ -644,12 +645,58 @@ dependent free variables,
 bound (a.ka. ``dummy'') variables or indices,
 and constants could each have their own color.
 
-For example, let 
-bound functions (e.g. $\sin$) and operators be \textcolor{Brown}{brown},
-independent free variables and functions be red,
-dependent free variables be dark red,
-bound variables and indices be gray,
-and constants be blue.
+Here is an example coloring scheme:
+
+\begin{description}
+\item[Well-defined functions and operators] are \textcolor{Brown}{brown}.
+      This includes elementary binary arithmetic operations like $+$, $-$, $\times$, and $\div$;
+      abstractions of them like $\sum$, $\prod$, and the $\frac{\hspace{1em}}{\hspace{1em}}$ in $\frac{ab}{cd}$;
+      integer-only operations like factorial $!$ and modulo $n$,
+      real-valued functions like $\log$, $\sin$, absolute value, and the gamma function;
+      vector operations like the cross-product, dot-product, and various $\nabla$ operations;
+      set operations like $\cap$ and $\cup$,
+      the operators of differential and integral calculus like $\int \mathrm{d}x$ and $\frac{d}{dx}$ and their complex and vector versions;
+      binary operators like the Kronecker delta, Poisson brackets, and commutator brackets;
+      and also generalized functions like the Dirac delta function.
+      If it acts on zero or more inputs and is well-defined,
+      it falls into this category.
+\item[Free variables or functions] are \textcolor{green}{green}. This includes quantities such as $x$ and $n$ in the binomial approximation $(1+x)^n \approx 1 + nx$
+      and the function $f$ in the linear approximation $f(x) \approx f(a) + f'(a)(x-a)$.
+      If it could have a value or definition but has not been assigned one,
+      it falls into this category,
+      even if it is later assigned a value or definition.
+\item[The independent variable] is \textcolor{red}{red}.
+      The choice of independent variable is not intrinsic to the equation,
+      but making it a different color gives context to the intended use of the relation.
+      It is a semantic annotation,
+      not a rigorously defined construct.
+
+\item[Constants] are \textcolor{blue}{blue}.
+      Some of these are numeric constants like $\pi$ or $e$,
+      while others are physical constants like the speed of light $c$ or Avogadro's number $N_A$,
+      and still others are constant sets like the set of real numbers $\mathbb{R}$. 
+      Note that this does not include quantities that must be kept constant in the validity regime of the equation.
+      For example,
+      the physical relation described by Snell's Law
+      $n_1 \sin(\theta_1) = n_2 \sin(\theta_2)$
+      does not describe a system where $n_1$ varies with position
+      (although in such a system Snell's Law can be integrated over the region to obtain the path of the ray).
+      Nevertheless,
+      although the relation assumes $n_1$ is constant over time and space,
+      $n_1$ of the entire medium is free to vary as long as the medium itself is uniform and isotropic,
+      so $n_1$ is still considered a free variable.
+\item[Indices and other bound variables] are \textcolor{darkgray}{gray}. This includes $k$ in $\sum_{k = 0}^{100}$ and $x$ in $\int \! x^2 \, \mathrm{d}x$.
+      If its value is assigned and constrained in a well-defined way,
+      but also varies,
+      it falls into this category.
+\item[Everything else] remains black.
+      This includes clarifying parenthesis in expressions like $(a/b)/c$ as well as mathematical shorthand like $\forall$, $\in$, $\subset$, $\therefore$, and relations like $>$, $\geq$, $=$, $\neq$, and $\approx$.
+\end{description}
+
+This scheme has many limitations.
+For example,
+it is skewed in favor of equations used by physicists,
+not equations used by e.g. statisticians or group theorists.
 
 %TODO Color-code these equations.
 
@@ -687,7 +734,7 @@ Van der Waals gas:
 Trapezoidal rule
 
 \[
-\int_{a}^{b} \! f(x)\, dx \approx (b-a) \left[\frac{f(a) + f(b)}{2} \right]
+\int_{a}^{b} \! f(x)\, dx \approx (b-a) \left(\frac{f(a) + f(b)}{2} \right)
 \]
 
 Bohr model
