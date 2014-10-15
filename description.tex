@@ -1,6 +1,6 @@
 \documentclass[12pt,letterpaper]{article}
 \usepackage[utf8]{inputenc}
-\usepackage{amsmath}
+\usepackage{amsmath, esint}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{listings}
@@ -671,75 +671,300 @@ Here is an example coloring scheme:
       It is a semantic annotation,
       not a rigorously defined construct.
 
-\item[Constants] are \textcolor{blue}{blue}.
-      Some of these are numeric constants like $\pi$ or $e$,
-      while others are physical constants like the speed of light $c$ or Avogadro's number $N_A$,
-      and still others are constant sets like the set of real numbers $\mathbb{R}$. 
-      Note that this does not include quantities that must be kept constant in the validity regime of the equation.
+\item[Named constants] are \textcolor{blue}{blue}.
+      These include numeric constants like $\pi$ or $e$,
+      vector constants like unit vectors $\hat{x}$, 
+      physical constants like the speed of light $c$ or Avogadro's number $N_A$,
+      unchanging sets such as the set of real numbers $\mathbb{R}$,
+      and unchanging groups like the symmetry group of a square $D_4$. 
+      If it is an unchanging quantity with a single,
+      widely accepted definition and a few common representations (ideally only one representation),
+      it fits into this category.
+      (Note that some physical constants may not actually be constant,
+      so this is context-dependent.
+      Also note that for these purposes,
+      ``constant'' does include quantities that must be kept constant to make equation valid.
       For example,
       the physical relation described by Snell's Law
-      $n_1 \sin(\theta_1) = n_2 \sin(\theta_2)$
-      does not describe a system where $n_1$ varies with position
-      (although in such a system Snell's Law can be integrated over the region to obtain the path of the ray).
+      $n_1 \sin \theta_1 = n_2 \sin \theta_2$
+      does not describe a system where $n_1$ varies with position.
       Nevertheless,
       although the relation assumes $n_1$ is constant over time and space,
       $n_1$ of the entire medium is free to vary as long as the medium itself is uniform and isotropic,
       so $n_1$ is still considered a free variable.
+      Similarly,
+      while drag coefficients are constant for a given object at a given Reynolds number,
+      they are freely variable components of the drag equation.)      
 \item[Indices and other bound variables] are \textcolor{darkgray}{gray}. This includes $k$ in $\sum_{k = 0}^{100}$ and $x$ in $\int \! x^2 \, \mathrm{d}x$.
       If its value is assigned and constrained in a well-defined way,
       but also varies,
+      and the choice of symbol is completely arbitrary,
       it falls into this category.
 \item[Everything else] remains black.
-      This includes clarifying parenthesis in expressions like $(a/b)/c$ as well as mathematical shorthand like $\forall$, $\in$, $\subset$, $\therefore$, and relations like $>$, $\geq$, $=$, $\neq$, and $\approx$.
+      This includes clarifying parenthesis in expressions like $(a/b)/c$, as well as mathematical shorthand like $\forall$, $\in$, $\subset$, $\therefore$, and relations like $>$, $\geq$, $=$, $\neq$, and $\approx$.
 \end{description}
 
 This scheme has many limitations.
 For example,
-it is skewed in favor of equations used by physicists,
-not equations used by e.g. statisticians or group theorists.
+\begin{itemize}
+\item it is skewed in favor of equations used by physicists,
+not equations used by e.g. statisticians or group theorists;
+\item does not distinguish between kinds of operators or functions;
+\item does not distinguish between integer-value, real, and complex free variables;
+\item does not establish whether free variables depend on other free variables or not;
+\item does not explicitly show the implicit multiplication operations;
+\item does not separate the operation for raising a value to the $n$th power from the (possibly) free variable $n$.
+\end{itemize}
+
+Despite these shortcomings, it is sufficient for illustrating the usefulness of this approach.
+
+\newcommand{\op}{\textcolor{Plum}} % functions and operators
+\newcommand{\fv}{\textcolor{green}} % free variables
+\newcommand{\iv}{\textcolor{red}} % independent variable
+\newcommand{\nc}{\textcolor{blue}} % named constants
+\newcommand{\bv}{\textcolor{Gray}} % indices and other bound variables
+
+$\op{a} \fv{a} \iv{a} \nc{a} \bv{a}$
 
 %TODO Color-code these equations.
 
 Compton scattering
 
 \[
-\lambda' - \lambda
+\fv{\lambda'} \op{-} \fv{\lambda}
 =
-\frac{h}{m_e c}
+\op{\frac{\nc{h}}{\nc{m_e} \nc{c}}}
 \left(
-    1 - \cos(\theta)
+    1 \op{-} \op{\cos} \, \iv{\theta}
 \right)
 \]
 
 Fundamental Theorem of Calculus
 
 \[
-\int_a^b f(x)\,\mathrm dx = F(b) - F(a)
+\op{\int_{\fv{a}}^{\fv{b}}}
+\iv{F}\op{'}(\bv{x})
+\op{\mathrm{d}} \bv{x}
+=
+\iv{F}(\fv{b}) - \iv{F}(\fv{a})
 \]
 
+
+Binomial coefficients
+
+\[
+\op{
+  \binom{
+    \fv{n}
+  }{
+    \iv{k}
+  }
+}
+=
+\op{
+  \frac{
+      \fv{n}\op{!}
+  }{
+      \iv{k} \op{!}
+      \,
+      (
+        \fv{n} \op{-} \iv{k}
+      )\op{!}
+  }
+}
+=
+\op{
+  \prod_{\bv{i} = 1}^{\iv{k}}
+}
+\op{
+  \frac{
+      \fv{n}
+      \op{-}
+      ( % TODO make these parentheses black
+        \iv{k} \op{-} \bv{i}
+      )
+    }{
+      \bv{i}
+  }
+}
+\]
+
+Geometric series
+\[
+\fv{a}
+\op{+} \fv{a}\iv{r} 
+\op{+} \fv{a} \iv{r}^2
+\op{+} \fv{a} \iv{r}^3
+\op{+}
+\cdots
+\op{+} \fv{a} \iv{r}^{\fv{n} \op{-} 1}
+=
+\op{
+  \sum_{\bv{k} = 0}^{\fv{n}-1}
+}
+\fv{a} \iv{r}^{\bv{k}}
+=
+\fv{a}
+\,
+\op{
+  \frac{
+    1 \op{-} \iv{r}^{\fv{n}}
+  }{
+    1 \op{-} \iv{r}
+  }
+}
+\]
 
 Gauss' Law
 
 \[
-\oint_S \vec{E} \cdot d \vec{A} = \frac{Q_{in}}{\varepsilon_0}
+\op{\oint_{\fv{S}}}
+\iv{\vec{E}}
+\op{\cdot}
+\op{\mathrm{d}}
+\fv{\vec{A}}
+=
+\frac{
+  \fv{Q_{in}}
+  }{
+  \nc{\varepsilon_0}
+  }
 \]
 
 Divergence theorem
 
+\[
+\iiint_V
+  \left(
+    \nabla
+    \cdot
+    \vec{F}
+  \right)
+  \,
+  dV
+=
+\oiint_{S}
+  \vec{F}
+  \cdot
+  \vec{n}
+  \,
+  dS
+\]
+
+Stokes' theorem
+
+\[
+\iint_{S}
+\nabla \times
+\mathbf{F}
+\cdot
+\mathrm{d}
+\mathbf{S}
+=
+\oint_{\partial S}
+\mathbf{F}
+\cdot
+\mathrm{d}
+\mathbf{r}
+\]
+
+Drag force acting on a projectile
+
+\[
+\fv{\vec{F_D}}
+=
+\op{-}
+\frac{1}{2}
+\fv{C_D}(
+  \fv{\iv{v}}
+)
+\fv{\rho}
+\fv{A}
+\iv{v}
+\iv{\vec{v}}
+\]
+
 Van der Waals gas:
 \[
-\left(p + \frac{n^2 a}{V^2}\right)\left(V-nb\right) = nRT
+\left(
+  p +
+  \frac{
+    n^2 a
+  }{
+    V^2
+  }
+\right)
+\left(
+  V - n b
+\right)
+=
+n R T
 \]
 
 Trapezoidal rule
 
 \[
-\int_{a}^{b} \! f(x)\, dx \approx (b-a) \left(\frac{f(a) + f(b)}{2} \right)
+\int_{a}^{b}
+\! % reduce spacing
+f(x)
+\, % add extra space
+\mathrm{d} x
+\approx
+(
+  b - a
+)
+\left(
+  \frac{
+    f(a)
+    +
+    f(b)
+  }{
+    2
+  }
+\right)
 \]
 
-Bohr model
+Bohr model radius
 
-Rydberg formula
+\[
+r_n
+=
+\frac{
+  n^2
+  \hbar^2
+}{
+  Z
+  k_\mathrm{e}
+  e^2
+  m_\mathrm{e}
+}
+\]
+
+Rydberg formula for hydrogen
+
+\[
+\frac{1}{\lambda}
+=
+\frac{
+  m_\text{e} e^4
+}{
+  8
+  \varepsilon_0^2
+  h^3
+  c
+}
+\left(
+  \frac{1}{n_1^2}
+  -
+  \frac{1}{n_2^2}
+\right)
+\]
+
+Virial theorem
+
+\[
+2 \left\langle T \right\rangle = -\sum_{k=1}^N \left\langle \mathbf{F}_k \cdot \mathbf{r}_k \right\rangle
+\]
 
 %TODO Cut down on the number of "could"s, "would"s, and "should"s.
 
