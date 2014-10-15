@@ -818,11 +818,11 @@ Geometric series
 Gauss' Law
 
 \[
-\op{\oint_{\fv{S}}}
+\op{\oint_{\bv{A}}}
 \iv{\vec{E}}
 \op{\cdot}
 \op{\mathrm{d}}
-\fv{\vec{A}}
+\bv{\vec{A}}
 =
 \frac{
   \fv{Q_{in}}
@@ -834,38 +834,43 @@ Gauss' Law
 Divergence theorem
 
 \[
-\iiint_V
+\op{\iiint_{\bv{V}}}
   \left(
-    \nabla
-    \cdot
-    \vec{F}
+    \op{\nabla \cdot}
+    \iv{\vec{F}}
   \right)
   \,
-  dV
+  \op{\mathrm{d}}
+  \bv{V}
 =
-\oiint_{S}
-  \vec{F}
-  \cdot
-  \vec{n}
+\op{\oiint_{\bv{S}}}
+  \iv{\vec{F}}
   \,
-  dS
+  \op{\cdot}
+  \,
+  \bv{\vec{n}}
+  \,
+  \op{\mathrm{d}}
+  \bv{S}
 \]
 
 Stokes' theorem
 
 \[
-\iint_{S}
-\nabla \times
-\mathbf{F}
-\cdot
-\mathrm{d}
-\mathbf{S}
+\op{\iint_{\bv{S}}}
+  \op{\nabla \times}
+  \iv{\vec{F}}
+  \,
+  \op{\cdot}
+  \,
+  \op{\mathrm{d}}
+  \bv{\vec{S}}
 =
-\oint_{\partial S}
-\mathbf{F}
-\cdot
-\mathrm{d}
-\mathbf{r}
+\op{\oint_{\partial \bv{S}}}
+  \iv{\vec{F}}
+  \cdot
+  \op{\mathrm{d}}
+  \bv{\vec{r}}
 \]
 
 Drag force acting on a projectile
