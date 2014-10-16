@@ -6,7 +6,7 @@
 \usepackage{listings}
 \usepackage{hyperref}
 \usepackage[usenames,dvipsnames]{color}
-\definecolor{darkgray}{rgb}{0.3,0.3,0.3}
+%\definecolor{darkgray}{rgb}{0.3,0.3,0.3}
 \usepackage{graphicx} %for pngs
 \usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
 \author{Nathaniel Beaver}
@@ -649,23 +649,43 @@ This makes it faster and easier to answer questions like,
 or
 ``How much of this equation could be replaced by a numeric constant?''
 
-Here is an example coloring scheme:
+Equation metadata provides insight into what is invariant and fundamental in an equation
+and what is an artifact of conventions such as positive and negative charge,
+origin, gauge, basis, and orientation (left or right handedness) of a vector space.
+
+\subsubsection{An example coloring scheme for simple equations.}
+
+\boldmath
+
+\newcommand{\op}{\textcolor{Plum}} % functions and operators
+\newcommand{\fv}{\textcolor{green}} % free variables
+\newcommand{\iv}{\textcolor{red}} % independent variable
+\newcommand{\fc}{\textcolor{blue}} % named constants
+\newcommand{\bv}{\textcolor{Gray}} % indices and other bound variables
+\newcommand{\nt}{\textcolor{black}} % normal text
+% The normal text command is necessary for certain cases such as \op{\sum_{}^{}} or \op{\frac{}{}} to return to normal text.
+
+%$\op{a} \fv{a} \iv{a} \fc{a} \bv{a}$
+
+%DONE Color-code these equations.
+%DONE Make the equations bold to see the color more easily.
 
 \begin{description}
-\item[Well-defined functions and operators] are \textcolor{Plum}{purple}.
-      This includes elementary binary arithmetic operations like $+$, $-$, $\times$, and $\div$;
-      abstractions of them like $\sum$, $\prod$, and the $\frac{\hspace{1em}}{\hspace{1em}}$ in $\frac{ab}{cd}$;
-      integer-only operations like factorial $!$ and modulo $n$,
-      real-valued functions like $\log$, $\sin$, absolute value, and the gamma function;
-      vector operations like the cross-product, dot-product, and various $\nabla$ operations;
-      set operations like $\cap$ and $\cup$,
-      the operators of differential and integral calculus like $\int \mathrm{d}x$ and $\frac{d}{dx}$ and their complex and vector versions;
+\item[Well-defined functions and operators] are \op{purple}.
+      This includes elementary binary arithmetic operations like $\op{+}$, $\op{-}$, $\op{\times}$, and $\op{\div}$;
+      abstractions of them like $\op{\sum}$, $\op{\prod}$, and the $\op{\frac{\hspace{1em}}{\hspace{1em}}}$ in $\op{\frac{\fv{a b}}{\fv{c d}}}$;
+      integer-only operations like factorial $\op{!}$ and modulo arithmetic $\fc{5} \equiv \fc{17} \op{ \mod{ \fc{12} }}$
+      real-valued functions like $\op{\log}$, $\op{\sin}$, absolute value $\op{|}\fv{x}\op{|}$, and the gamma function;
+      vector operations like the cross-product, dot-product, and various $\op{\nabla}$ operations;
+      set operations like $\op{\cap}$ and $\op{\cup}$,
+      the operators of differential and integral calculus like $\op{\lim_{\bv{x} \to \fc{\infty}}}$ $\op{\int \mathrm{d}}\bv{x}$ and $\op{\frac{d}{d\fv{x}}}$ and their complex and vector versions;
       binary operators like the Kronecker delta, Poisson brackets, and commutator brackets;
       and also generalized functions like the Dirac delta function.
       If it acts on zero or more inputs and is well-defined,
       it falls into this category.
-\item[Free variables or functions] are \textcolor{green}{green}. This includes quantities such as $x$ and $n$ in the binomial approximation $(1+x)^n \approx 1 + nx$
-      and the function $f$ in the linear approximation $f(x) \approx f(a) + f'(a)(x-a)$.
+\item[Free variables or functions] are \textcolor{green}{green}. This includes quantities such as $\fv{x}$ and $\fv{n}$ in the binomial approximation $(\fc{1}\op{+}\fv{x})^{\fv{n}} \approx \fc{1} \op{+} \fv{n}\fv{x}$
+      and the function $\fv{f}$ in the linear approximation $\fv{f}(\iv{x}) \approx \fv{f}(\fv{a}) + \fv{f}\op{'}(\fv{a})(\iv{x}-\fv{a})$.
+      It also includes free constants such as constants of integration.
       If it could have a value or definition but has not been assigned one,
       it falls into this category,
       even if it is later assigned a value or definition.
@@ -675,71 +695,93 @@ Here is an example coloring scheme:
       It is a semantic annotation,
       not a rigorously defined construct.
 
-\item[Named constants] are \textcolor{blue}{blue}.
-      These include numeric constants like $\pi$ or $e$,
-      vector constants like unit vectors $\hat{x}$,
-      physical constants like the speed of light $c$ or Avogadro's number $N_A$,
-      unchanging sets such as the set of real numbers $\mathbb{R}$,
-      and unchanging groups like the symmetry group of a square $D_4$.
-      If it is an unchanging quantity with a single,
+\item[Fixed constants] are \fc{blue}.
+      These include numeric constants like $\fc{0}$, $\fc{\pi}$ or $\fc{e}$,
+      vector constants like unit vectors $\fc{\hat{x}}$,
+      physical constants like the speed of light $\fc{c}$ or Avogadro's number $\fc{N_A}$,
+      unchanging sets such as the set of real numbers $\fc{\mathbb{R}}$,
+      unchanging groups like the symmetry group of a square $\fc{D_4}$,
+      and even abstractions of convenience like $\fc{\infty}$ and $\fc{-\infty}$.
+      It does not include constants of integration,
+      unless the constant's value is fixed by some constraint.
+      If it is a fixed quantity with a single,
       widely accepted definition and a few common representations (ideally only one representation),
       it fits into this category.
       (Note that some physical constants may not actually be constant,
-      so this is context-dependent.
+      so this is context-dependent and depends on the author's intent.
       Also note that for these purposes,
       ``constant'' does include quantities that must be kept constant to make equation valid.
       For example,
       the physical relation described by Snell's Law
-      $n_1 \sin \theta_1 = n_2 \sin \theta_2$
-      does not describe a system where $n_1$ varies with position.
+      $\fv{n_1} \op{\sin} \fv{\theta_1} = \fv{n_2} \op{\sin} \fv{\theta_2}$
+      does not describe a system where $\fv{n_1}$ varies with position.
       Nevertheless,
-      although the relation assumes $n_1$ is constant over time and space,
-      $n_1$ of the entire medium is free to vary as long as the medium itself is uniform and isotropic,
-      so $n_1$ is still considered a free variable.
+      although the relation assumes $\fv{n_1}$ is constant over time and space,
+      $\fv{n_1}$ of the entire medium is free to vary as long as the medium itself is uniform and isotropic,
+      so $\fv{n_1}$ is still considered a free variable.
       Similarly,
       while drag coefficients are constant for a given object at a given Reynolds number,
       they are freely variable components of the drag equation.)
-\item[Indices and other bound variables] are \textcolor{Gray}{gray}. This includes $k$ in $\sum_{k = 0}^{100}$ and $x$ in $\int \! x^2 \, \mathrm{d}x$.
-      If its value is assigned and constrained in a well-defined way,
+\item[Indices and other bound variables] are \bv{gray}. This includes $\bv{k}$ in $\op{\sum_{\bv{k} \nt{=} \fc{0}}^{\fc{100}}}$ and $\bv{x}$ in $\op{\int} \! \bv{x}^{\op{2}} \, \op{\mathrm{d}} \bv{x}$ as well as tensor indices.
+      If its value is assigned and constrained by an operator in a well-defined way,
       but also varies,
       and the choice of symbol is completely arbitrary,
       it falls into this category.
+      Note that the constraint must be explicit and local to the expression;
+      most free variables have some kind of constraints on them,
+      but not enough to evaluate the expression.
 \item[Everything else] remains black.
-      This includes clarifying parenthesis in expressions like $(a/b)/c$, as well as mathematical shorthand like $\forall$, $\in$, $\subset$, $\therefore$, and relations like $>$, $\geq$, $=$, $\neq$, and $\approx$.
+      This includes clarifying parenthesis in expressions like
+      $(
+        \fv{a} \op{/} \fv{b}
+       )\op{/}
+       \fv{c}$,
+      as well as mathematical shorthand like $\forall$, $\in$, $\subset$, $\therefore$, and relations like $>$, $\geq$, $=$, $\neq$, and $\approx$.
 \end{description}
 
 This scheme has many limitations.
-For example,
+For example, it
 \begin{itemize}
-\item it is skewed in favor of equations used by physicists,
+\item is skewed in favor of equations used by physicists,
 not equations used by e.g. statisticians or group theorists;
 \item does not distinguish between kinds of operators or functions;
 \item does not distinguish between integer-value, real, and complex free variables;
 \item does not establish whether free variables depend on other free variables or not;
 \item does not explicitly show the implicit multiplication operations;
-\item does not separate the operation for raising a value to the $n$th power from the (possibly) free variable $n$.
+\item does not separate the operation of raising a value to the $\fv{n}$th power (e.g $\fc{2}^{\fv{n}}$) from the free variable $\fv{n}$.
 \end{itemize}
 
-Despite these shortcomings, it is sufficient for illustrating the usefulness of this approach.
+However, it does have some good points as well. For example,
 
-\newcommand{\op}{\textcolor{Plum}} % functions and operators
-\newcommand{\fv}{\textcolor{green}} % free variables
-\newcommand{\iv}{\textcolor{red}} % independent variable
-\newcommand{\nc}{\textcolor{blue}} % named constants
-\newcommand{\bv}{\textcolor{Gray}} % indices and other bound variables
+\begin{itemize}
+\item Color is unused by existing notation,
+      so any equations can be coded without loss of information.
+\item Highlighting the independent variable in \iv{red} conveys the author's intent.
+\item An extra degree of freedom for disambiguating expressions. A primed variable $\fv{f'}$ is different from the derivative of a function $\fv{f}\op{'}$.
+\item Mental variable collisions are less likely.
+      Nobody will see a constant of integration $\fv{c}$ and think it could be the speed of light $\fc{c}$.
+\item The line between functions and variables is generally not clear-cut,
+      since most variables depend on other variables.
+      This scheme sidesteps the problem by lumping them together.
+\item It increases the information density of an equation without adding excess complexity;
+      only five easily distinguishable hues are added.
+\item It constitutes a rudimentary visual type system for the expressions,
+      which helps catch error and inconsistencies.
+      Differentiating with respect to a fixed constant is obviously wrong,
+      for example.
+\end{itemize}
 
-%$\op{a} \fv{a} \iv{a} \nc{a} \bv{a}$
-
-%DONE Color-code these equations.
+Here is a small selection of equations codes with this scheme,
+mainly selected from calculus (i.e. real analysis) and the physical sciences.
 
 Compton scattering
 
 \[
 \fv{\lambda'} \op{-} \fv{\lambda}
 =
-\op{\frac{\nc{h}}{\nc{m_e} \nc{c}}}
+\op{\frac{\fc{h}}{\fc{m_e} \fc{c}}}
 \left(
-    1 \op{-} \op{\cos} \, \iv{\theta}
+    \fc{1} \op{-} \op{\cos} \, \iv{\theta}
 \right)
 \]
 
@@ -779,7 +821,7 @@ Binomial coefficients
 =
 \op{
   \prod_{
-    \bv{i} \, \textcolor{black}{= \, 1}
+    \bv{i} \, \nt{=} \, \fc{1}
   }^{
     \iv{k}
   }
@@ -805,13 +847,13 @@ Geometric series
 \op{+} \fv{a} \iv{r}^{\op{3}}
 \op{+}
 \cdots
-\op{+} \fv{a} \iv{r}^{\op{\fv{n} \op{-} 1}}
+\op{+} \fv{a} \iv{r}^{\op{\fv{n} \op{-} \fc{1}}}
 =
 \op{
   \sum_{
-    \bv{k} \, \textcolor{black}{= \, 0}
+    \bv{k} \, \textcolor{black}{=} \, \fc{0}
   }^{
-    \fv{n} \op{-} 1
+    \fv{n} \op{-} \fc{1}
   }
 }
 \fv{a} \iv{r}^{\bv{k}}
@@ -820,9 +862,9 @@ Geometric series
 \,
 \op{
   \frac{
-    1 \op{-} \iv{r}^{\fv{n}}
+    \fc{1} \op{-} \iv{r}^{\fv{n}}
   }{
-    1 \op{-} \iv{r}
+    \fc{1} \op{-} \iv{r}
   }
 }
 \]
@@ -839,7 +881,7 @@ Gauss' Law
 \frac{
   \fv{Q_{in}}
   }{
-  \nc{\varepsilon_0}
+  \fc{\varepsilon_0}
   }
 \]
 
@@ -892,7 +934,7 @@ Drag force acting on a projectile
 =
 \op{-}
 \iv{\hat{v}}
-\frac{1}{2}
+\fc{\frac{1}{2}}
 \fv{C_D}(
   \fv{\iv{v}}
 )
@@ -921,7 +963,7 @@ Van der Waals gas:
 \right)
 =
 \fv{n}
-\nc{R}
+\fc{R}
 \iv{T}
 \]
 
@@ -951,7 +993,7 @@ Trapezoidal rule
     \op{+}
     \iv{f}(\fv{b})
   }{
-    2
+    \fc{2}
   }
 \right)
 \]
@@ -963,34 +1005,28 @@ Bohr model radius of electron orbit
 =
 \frac{
   \iv{n}^{\op{2}}
-  \nc{\hbar}^{\op{2}}
+  \fc{\hbar}^{\op{2}}
 }{
   \fv{Z}
-  \nc{k_\mathrm{e}}
-  \nc{e}^{\op{2}}
-  \nc{m_\mathrm{e}}
+  \fc{k_\mathrm{e}}
+  \fc{e}^{\op{2}}
+  \fc{m_\mathrm{e}}
 }
 \]
 
 Rydberg formula for hydrogen
 
 \[
-\op{
-  \frac{
-    1
-  }{
-    \fv{\lambda}
-  }
-}
+\fv{\lambda}^{\op{-1}}
 =
 \frac{
-  \nc{m_e}
-  \nc{e}^{\op{4}}
+  \fc{m_e}
+  \fc{e}^{\op{4}}
 }{
-  8
-  \nc{\varepsilon_0}^{\op{2}}
-  \nc{h}^{\op{3}}
-  \nc{c}
+  \fc{8}
+  \fc{\varepsilon_0}^{\op{2}}
+  \fc{h}^{\op{3}}
+  \fc{c}
 }
 \left(
   \fv{n_1}^{\op{-2}}
@@ -1002,7 +1038,7 @@ Rydberg formula for hydrogen
 Virial theorem
 
 \[
-2
+\fc{2}
 \op{
   \left\langle
     \fv{T}
@@ -1012,7 +1048,7 @@ Virial theorem
 \op{-}
 \op{
   \sum_{
-    \bv{k} \textcolor{black}{= 1}
+    \bv{k} \textcolor{black}{= \fc{1}}
   }^{
     \fv{N}
   }
@@ -1026,16 +1062,11 @@ Virial theorem
 }
 \]
 
+\unboldmath
+
 %TODO Cut down on the number of "could"s, "would"s, and "should"s.
 
-Color-coding provides an extra degree of freedom for distinguishing quantities
-and increasing the information density of an equation.
-Furthermore, it is a kind of rudimentary visual type system for mathematics.
-Symmetries become more apparent.
 
-Equation metadata provides insight into what is invariant and fundamental in an equation
-and what is an artifact of conventions such as positive and negative charge,
-origin, gauge, basis, and orientation (left or right handedness) of a vector space.
 
 \subsection{Reasoning about physical systems and connections between them based on mathematical structure.}
 
