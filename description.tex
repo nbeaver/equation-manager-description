@@ -10,7 +10,7 @@
 \usepackage{graphicx} %for pngs
 \usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
 \author{Nathaniel Beaver}
-\title{A description of software for searchable math and physics equations, identities, and definitions.}
+\title{Goals and use cases for a system that queries and manipulates equations.}
 \begin{document}
 
 \maketitle
@@ -296,7 +296,7 @@ These are broad requirements that do not specify implementation.
 These are some specific requirements of the implementation.
 
 \begin{itemize}
-\item Store equation database locally. Network connectivity must not required.
+\item Store equation database locally. Network connectivity must not be required for typical use.
 \item Provide the capability to update from network sources and merge in other people's changes,
       as existing distributed version control systems do.
 \item Store representations in at least one format of a variety of options
@@ -384,8 +384,11 @@ Possibly, but it's pretty badly fragmented already.
 If there is a reliable system to automatically convert systems of units and other conventions,
 fragmentation will not matter as much.
 
+Some fragmentation is due to the difficulty of updating existing bodies of work to match modern improvements,
+so a system to make this easier could actually reduce fragmentation.
+
 Furthermore,
-such a system would encourage using a standard form when writing papers and textbooks,
+such a system would make it possible to use a standard form when writing papers and textbooks,
 since everyone could convert to their favorite set of conventions without difficulty.
 
 \subsection{Is it really so much work to use a web search or a book index?}
@@ -464,7 +467,7 @@ I would, and I have
 
 It's really not;
 \hyperref[sec:ambitious]
-{see below} for the actually hard problems.
+{see below} for the actually hard/interesting problems.
 The individual components have existed for decades,
 they just haven't been tied together yet.
 I regularly use a
@@ -499,7 +502,8 @@ The
 \subsection{Semantics of representation and elimination of ambiguity.}
 
 Mathematical software is traditionally poor at retaining semantics.
-It's easy, for example,
+This is sometimes beneficial;
+it's easy, for example,
 to simulate a universe with physical laws that do not match this universe.
 However, some level of semantic information can be retained by,
 for example, respecting consistent dimensionality and distinguishing indices from regular variables.
@@ -588,7 +592,7 @@ Also, the commutativity properties means that symmetry groups can be used to des
 These examples of notation-invariant properties could potentially be tabulated and systematized
 as a kind of fingerprint for a large number of commonly-used expressions,
 which could make recognizing mathematical patterns easier,
-since familiarity with the particular notation would not be necessary to recognize the pattern.
+since familiarity with the particular notation and choice of symbols would not be necessary to recognize the pattern.
 
 Ideally the fingerprint would be robust enough to help identify the components of a complex equation's sub-expressions with simpler equations.
 
@@ -679,17 +683,17 @@ origin, gauge, basis, and orientation (left or right handedness) of a vector spa
       vector operations like the cross-product, dot-product, and various $\op{\nabla}$ operations;
       set operations like $\op{\cap}$ and $\op{\cup}$,
       the operators of differential and integral calculus like $\op{\lim_{\bv{x} \to \fc{\infty}}}$ $\op{\int \mathrm{d}}\bv{x}$ and $\op{\frac{d}{d\fv{x}}}$ and their complex and vector versions;
-      binary operators like the Kronecker delta, Poisson brackets, and commutator brackets;
+      generalized binary operators like the Kronecker delta, Poisson brackets, and commutator brackets;
       and also generalized functions like the Dirac delta function.
       If it acts on zero or more inputs and is well-defined,
       it falls into this category.
-\item[Free variables or functions] are \textcolor{green}{green}. This includes quantities such as $\fv{x}$ and $\fv{n}$ in the binomial approximation $(\fc{1}\op{+}\fv{x})^{\fv{n}} \approx \fc{1} \op{+} \fv{n}\fv{x}$
+\item[Free variables or functions] are \fv{green}. This includes quantities such as $\fv{x}$ and $\fv{n}$ in the binomial approximation $(\fc{1}\op{+}\fv{x})^{\fv{n}} \approx \fc{1} \op{+} \fv{n}\fv{x}$
       and the function $\fv{f}$ in the linear approximation $\fv{f}(\iv{x}) \approx \fv{f}(\fv{a}) + \fv{f}\op{'}(\fv{a})(\iv{x}-\fv{a})$.
       It also includes free constants such as constants of integration.
       If it could have a value or definition but has not been assigned one,
       it falls into this category,
       even if it is later assigned a value or definition.
-\item[The independent variable] is \textcolor{red}{red}.
+\item[The independent variable] is \iv{red}.
       The choice of independent variable is not intrinsic to the equation,
       but making it a different color gives context to the intended use of the relation.
       It is a semantic annotation,
@@ -730,7 +734,7 @@ origin, gauge, basis, and orientation (left or right handedness) of a vector spa
       Note that the constraint must be explicit and local to the expression;
       most free variables have some kind of constraints on them,
       but not enough to evaluate the expression.
-\item[Everything else] remains black.
+\item[Everything else] remains \nt{black}.
       This includes clarifying parenthesis in expressions like
       $(
         \fv{a} \op{/} \fv{b}
@@ -749,6 +753,10 @@ not equations used by e.g. statisticians or group theorists;
 \item does not establish whether free variables depend on other free variables or not;
 \item does not explicitly show the implicit multiplication operations;
 \item does not separate the operation of raising a value to the $\fv{n}$th power (e.g $\fc{2}^{\fv{n}}$) from the free variable $\fv{n}$.
+\item Contains some ambiguities.
+      For example, squaring a constant is performing an operation on that constant,
+      but the result is still a constant,
+      so perhaps the entire thing should be colored as a constant?
 \end{itemize}
 
 However, it does have some good points as well. For example,
