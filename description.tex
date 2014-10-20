@@ -918,7 +918,7 @@ Divergence theorem
   \op{\mathrm{d}}
   \fv{V}
 =
-\op{\oiint_{\bv{S}}}
+\op{\oiint_{\fv{S}}}
   \iv{\vec{F}}
   \,
   \op{\cdot}
@@ -926,7 +926,7 @@ Divergence theorem
   \bv{\vec{n}}
   \,
   \op{\mathrm{d}}
-  \bv{S}
+  \fv{S}
 \]
 
 Stokes' theorem
@@ -939,7 +939,7 @@ Stokes' theorem
   \op{\cdot}
   \,
   \op{\mathrm{d}}
-  \fv{\vec{S}}
+  \fv{\bv{\vec{S}}}
 =
 \op{\oint_{\partial \fv{S}}}
   \iv{\vec{F}}
@@ -1024,7 +1024,7 @@ Bohr model radius of electron orbit
 \[
 \fv{r}_{\iv{n}}
 =
-\frac{
+\op{\frac{
   \iv{n}^{\op{2}}
   \fc{\hbar}^{\op{2}}
 }{
@@ -1032,7 +1032,7 @@ Bohr model radius of electron orbit
   \fc{k_\mathrm{e}}
   \fc{e}^{\op{2}}
   \fc{m_\mathrm{e}}
-}
+}}
 \]
 
 Rydberg formula for hydrogen
@@ -1086,13 +1086,28 @@ Virial theorem
 Einstein field equations
 
 \[
-R_{\mu \nu} - {1 \over 2}g_{\mu \nu}\,R + g_{\mu \nu} \Lambda = {8 \pi G \over c^4} T_{\mu \nu}
+\fv{R}_{\bv{\mu} \bv{\nu}}
+\op{-}
+\op{\frac{\fc{1}}{\fc{2}}}
+\fv{g}_{\bv{\mu} \bv{\nu}} \, \fv{R}
+\op{+}
+\fv{g}_{\bv{\mu} \bv{\nu}} \fc{\Lambda}
+=
+\op{\frac{\fc{8 \pi G}}{\fc{c^4}}}
+\fv{T}_{\bv{\mu} \bv{\nu}}
 \]
 
 Fourier transform
 
 \[
-\hat{f}(\xi) = \int_{-\infty}^\infty f(x)\ e^{- 2\pi i x \xi}\,dx
+\fv{\hat{f}}
+  (\fv{\xi})
+=
+\op{\int_{\fc{-\infty}}^{\fc{\infty}}}
+  \iv{f}(\bv{x})
+  \ \fc{e}^{\op{-} \fc{2\pi i} \bv{x} \fv{\xi}}
+  \,
+  \op{\mathrm{d}} \bv{x}
 \]
 
 %TODO Fourier transforms
