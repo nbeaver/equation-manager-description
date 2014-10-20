@@ -685,7 +685,12 @@ origin, gauge, basis, and orientation (left or right handedness) of a vector spa
       real-valued functions like $\op{\log}$, $\op{\sin}$, absolute value $\op{|}\fv{x}\op{|}$, and the gamma function;
       vector operations like the cross-product, dot-product, and various $\op{\nabla}$ operations;
       set operations like $\op{\cap}$ and $\op{\cup}$,
-      the operators of differential and integral calculus like $\op{\lim_{\bv{x} \to \fc{\infty}}}$ $\op{\int \mathrm{d}}\bv{x}$ and $\op{\frac{d}{d\fv{x}}}$ and their complex and vector versions;
+      the operators of differential and integral calculus like
+      $\op{\lim_{\bv{x} \to \fc{\infty}}}\frac{\op{\sin} \bv{x}}{\bv{x}}$,
+      $\op{\int \mathrm{d}}\fv{x}$,
+      and
+      $\op{\frac{d}{d\fv{x}}}$
+      and their complex and vector versions;
       generalized binary operators like the Kronecker delta, Poisson brackets, and commutator brackets;
       and also generalized functions like the Dirac delta function.
       If it acts on zero or more inputs and is well-defined,
@@ -708,7 +713,7 @@ origin, gauge, basis, and orientation (left or right handedness) of a vector spa
       physical constants like the speed of light $\fc{c}$ or Avogadro's number $\fc{N_A}$,
       unchanging sets such as the set of real numbers $\fc{\mathbb{R}}$,
       unchanging groups like the symmetry group of a square $\fc{D_4}$,
-      and even abstractions of convenience like $\fc{\infty}$ and $\fc{-\infty}$.
+      and even poorly defined but fixed abstractions such as $\fc{\infty}$ and $\fc{-\infty}$.
       It does not include constants of integration,
       unless the constant's value is fixed by some constraint.
       If it is a fixed quantity with a single,
@@ -729,7 +734,12 @@ origin, gauge, basis, and orientation (left or right handedness) of a vector spa
       Similarly,
       while drag coefficients are constant for a given object at a given Reynolds number,
       they are freely variable components of the drag equation.)
-\item[Indices and other bound variables] are \bv{gray}. This includes $\bv{k}$ in $\op{\sum_{\bv{k} \nt{=} \fc{0}}^{\fc{100}}}$ and $\bv{x}$ in $\op{\int} \! \bv{x}^{\op{2}} \, \op{\mathrm{d}} \bv{x}$ as well as tensor indices.
+\item[Indices and other bound variables] are \bv{gray}.
+      This includes $\bv{k}$ in
+      $\op{\sum_{\bv{k} \nt{=} \fc{0}}^{\fc{100}}}$
+      and $\bv{x}$ in
+      $\op{\int_{\fc{0}}^{\fc{2}}} \! \bv{x}^{\op{2}} \, \op{\mathrm{d}} \bv{x}$
+      as well as tensor indices.
       If its value is assigned and constrained by an operator in a well-defined way,
       but also varies,
       and the choice of symbol is completely arbitrary,
@@ -770,7 +780,7 @@ However, it does have some good points as well. For example,
 \item Highlighting the independent variable in \iv{red} conveys the author's intent.
 \item An extra degree of freedom for disambiguating expressions. A primed variable $\fv{f'}$ is different from the derivative of a function $\fv{f}\op{'}$.
 \item Mental variable collisions are less likely.
-      Nobody will see a constant of integration $\fv{c}$ and think it could be the speed of light $\fc{c}$.
+      It is easy to distinguish a constant of integration $\fv{c}$ from the speed of light $\fc{c}$.
 \item The line between functions and variables is generally not clear-cut,
       since most variables depend on other variables.
       This scheme sidesteps the problem by lumping them together.
@@ -883,11 +893,11 @@ Geometric series
 Gauss' Law
 
 \[
-\op{\oint_{\bv{A}}}
+\op{\oint_{\fv{A}}}
 \iv{\vec{E}}
 \op{\cdot}
 \op{\mathrm{d}}
-\bv{\vec{A}}
+\fv{\vec{A}}
 =
 \frac{
   \fv{Q_{in}}
@@ -899,14 +909,14 @@ Gauss' Law
 Divergence theorem
 
 \[
-\op{\iiint_{\bv{V}}}
+\op{\iiint_{\fv{V}}}
   \left(
     \op{\nabla \cdot}
     \iv{\vec{F}}
   \right)
   \,
   \op{\mathrm{d}}
-  \bv{V}
+  \fv{V}
 =
 \op{\oiint_{\bv{S}}}
   \iv{\vec{F}}
@@ -922,16 +932,16 @@ Divergence theorem
 Stokes' theorem
 
 \[
-\op{\iint_{\bv{S}}}
+\op{\iint_{\fv{S}}}
   \op{\nabla \times}
   \iv{\vec{F}}
   \,
   \op{\cdot}
   \,
   \op{\mathrm{d}}
-  \bv{\vec{S}}
+  \fv{\vec{S}}
 =
-\op{\oint_{\partial \bv{S}}}
+\op{\oint_{\partial \fv{S}}}
   \iv{\vec{F}}
   \cdot
   \op{\mathrm{d}}
@@ -1071,6 +1081,18 @@ Virial theorem
     \fv{\vec{r}_{\bv{k}}}
   \right\rangle
 }
+\]
+
+Einstein field equations
+
+\[
+R_{\mu \nu} - {1 \over 2}g_{\mu \nu}\,R + g_{\mu \nu} \Lambda = {8 \pi G \over c^4} T_{\mu \nu}
+\]
+
+Fourier transform
+
+\[
+\hat{f}(\xi) = \int_{-\infty}^\infty f(x)\ e^{- 2\pi i x \xi}\,dx
 \]
 
 %TODO Fourier transforms
