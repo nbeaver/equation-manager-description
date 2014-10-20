@@ -21,6 +21,7 @@
 *.csv#
 # Ignore other temp files
 .md~
+*.fls
+*.fdb_latexmk
 #
 tex4ht/
-#
