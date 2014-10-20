@@ -10,7 +10,7 @@
 \usepackage{graphicx} %for pngs
 \usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
 \author{Nathaniel Beaver}
-\title{Goals and use cases for a system that queries and manipulates equations.}
+\title{Goals and use cases for a system that stores, queries, and manipulates equations.}
 \begin{document}
 
 \maketitle
@@ -65,14 +65,14 @@ If the original document is written in \LaTeX\, however,
 it is possible to
 \href{http://www.ctan.org/pkg/embedfile}
 {attach the entire \LaTeX\ source code to a PDF},
-although this is somewhat less than convenient
-and does not automatically unwrap macros into standard \LaTeX\ commands.
+although this is somewhat less than convenient for reusing the equation markup,
+since it does not automatically unwrap macros into standard \LaTeX\ commands.
 This means that the authors must either avoid the use of macros,
-or the user must copy all the necessary macros to use the equations.
+or the user must include all necessary packags and copy all the necessary macros to use the equations.
 
 \subsection{Electronic resources.}
 
-Let's see if Wolfram Alpha's database has this.
+Let's see if Wolfram Alpha's database has the boundary conditions.
 After all,
 it does a good job with
 \href{https://www.wolframalpha.com/input/?i=particle+in+a+magnetic+field}
@@ -407,7 +407,10 @@ This is just a simple example of hard it is to find even a basic equation with r
 
 %TODO add more examples explaining how badly things are broken and why this needs to change
 
-As for books, if you can get everything you need from one book, great. The ones I need are generally scattered across several books and journal articles, none of which have the same notation and only some of which have good indices.
+As for books, if you can get everything you need from one book, great.
+The ones I need are generally scattered across several books and journal articles,
+none of which use the same notation.
+Note all books have a good glossary or index.
 
 \subsection{Surely there are people already working on this, or something similar?}
 
@@ -1069,6 +1072,9 @@ Virial theorem
   \right\rangle
 }
 \]
+
+%TODO Fourier transforms
+%TODO add links for all these equations
 
 \unboldmath
 
