@@ -25,3 +25,6 @@
 *.fdb_latexmk
 #
 tex4ht/
+# Archive files
+*.zip
+*.tar.gz
