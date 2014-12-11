@@ -1,6 +1,12 @@
-See the PDF [here](description.pdf) and the LaTeX source [here](description.tex).
+=================================================================================
+Goals and use cases for a system that stores, queries, and manipulates equations.
+=================================================================================
 
-For a minimal prototype, see here:
+Read an HTML version of the PDF here: https://nbeaver.github.io/equation-manager-description/
+
+Download the PDF [here](description.pdf) and the LaTeX source [here](description.tex).
+
+For a minimal software prototype of the equation manager described, the git repository is hosted here:
 
 https://github.com/nbeaver/equation-manager-prototype
 
