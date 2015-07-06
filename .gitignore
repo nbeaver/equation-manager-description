@@ -28,3 +28,5 @@ tex4ht/
 # Archive files
 *.zip
 *.tar.gz
+# Ignore symbolic link to related folders.
+link-to-equation-database-prototype
