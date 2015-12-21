@@ -24,6 +24,13 @@ To view a copy of this license, visit \url{http://creativecommons.org/licenses/b
 
 \section{Motivation}
 
+\begin{quote}
+My memory for even the commonest
+formulae is poor, and I rely on either reconstructing them or referring to an accepted text.
+
+--- D. J. Finney, "Dimensions of Statistics"
+\end{quote}
+
 Equations are ubiquitous in mathematics and science.
 However, the way in which we store and reference equations suffers from severe flaws,
 such as the inability to transparently manipulate equations,
@@ -57,6 +64,11 @@ The drawback is that these equations is that they are ``read-only.''
 They must be manually typed up for use in a \LaTeX\ document or word processing software,
 a laborious process even for relatively short equations.
 They are even less suited for use in computational software.
+
+% When you ask a mathematician to come up with a formula to solve a problem,
+% you will get something that looks pretty, but that doesn’t mean that it lends
+% itself well to computation.
+% https://blogs.msdn.microsoft.com/oldnewthing/20130508-00/?p=4423/
 
 Ebooks and PDF files do not solve this problem,
 as they do not use \LaTeX\ or computable formats internally.
@@ -115,7 +127,6 @@ gif in this case
 \includegraphics[scale=0.3]{normalEfieldWithCharge.png}
 \includegraphics[scale=0.3]{normalEfieldWithCharge.png}
 \end{center}
-
 
 Note that already there is considerable variation in notation.
 Furthermore, neither site includes any equations which can be parsed or modified
@@ -656,6 +667,8 @@ Feynman might have seen something like this.
 \JF_{\nF}(i \xF) \JF_{\nF}'(\xF) - i \JF_{\nF}(\xF) \JF_{\nF}' (i \xF) = 0
 \]
 \unboldmath
+
+% TODO: link to http://blog.revolutionanalytics.com/2015/09/because-its-friday-visualizing-ffts.html#
 
 \label{color-coding}
 With sufficient metadata about an equation,
