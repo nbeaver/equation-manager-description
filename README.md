@@ -13,7 +13,7 @@ or [download the zip file](https://github.com/nbeaver/equation-manager-descripti
 This has a companion project which is a minimal software prototype of the equation manager.
 The git repository is hosted here:
 
-<https://github.com/nbeaver/equation-manager-prototype>
+<https://github.com/nbeaver/equajson>
 
 This work is licensed under the Creative Commons Attribution 3.0 Unported License.
 To view a copy of this license, visit http://creativecommons.org/licenses/by/3.0/.
