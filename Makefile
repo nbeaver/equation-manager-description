@@ -1,4 +1,6 @@
-all: description.pdf index.html
+.PHONY: all clean
+
+all : description.pdf index.html
 
 description.pdf : description.tex
 	latexmk -interaction=nonstopmode -pdf description.tex
