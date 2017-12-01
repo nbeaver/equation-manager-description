@@ -1,5 +1,4 @@
-Goals and use cases for a tool that stores, queries, and manipulates equations.
-===============================================================================
+# Goals and use cases for a tool that stores, queries, and manipulates equations.
 
 Read an HTML version of the PDF: <https://nbeaver.github.io/equation-manager-description/>
 
