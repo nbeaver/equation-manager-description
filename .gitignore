@@ -29,4 +29,4 @@ tex4ht/
 *.zip
 *.tar.gz
 # Ignore symbolic link to related folders.
-link-to-equation-database-prototype
+*.desktop
