@@ -10,7 +10,6 @@
 *.out
 *.synctex.gz
 # Ignore LaTeX output files
-*.pdf
 *.dvi
 *.ps
 *.toc
