@@ -27,5 +27,6 @@ tex4ht/
 # Archive files
 *.zip
 *.tar.gz
-# Ignore symbolic link to related folders.
-*.desktop
+# Ignore file manager links to related folders.
+*.link.desktop
+*.lnk
