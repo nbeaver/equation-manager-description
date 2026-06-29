@@ -738,7 +738,7 @@ or
 %DONE Make the equations bold to see the color more easily.
 
 \begin{description}
-\item[Operators and special functions] are \op{purple}.
+  \item[Operators and special functions] are \op{\textbf{purple}}.
       This includes elementary binary arithmetic operations like $\op{+}$, $\op{-}$, $\op{\times}$, and $\op{\div}$;
       abstractions of them like $\op{\sum}$, $\op{\prod}$, and the $\op{\frac{\hspace{1em}}{\hspace{1em}}}$ in $\op{\frac{\fv{a b}}{\fv{c d}}}$;
       integer-only operations like factorial $\op{!}$ and modulo arithmetic $\fc{5} \equiv \fc{17} \op{ \mod{ \fc{12} }}$
@@ -755,19 +755,19 @@ or
       and also generalized functions like the Dirac delta function.
       If it acts on zero or more inputs and cannot be freely redefined,
       it falls into this category.
-\item[Free variables and free functions] are \fv{green}. This includes quantities such as $\fv{x}$ and $\fv{n}$ in the binomial approximation $(\fc{1}\op{+}\fv{x})^{\fv{n}} \approx \fc{1} \op{+} \fv{n}\fv{x}$
+    \item[Free variables and free functions] are \fv{\textbf{green}}. This includes quantities such as $\fv{x}$ and $\fv{n}$ in the binomial approximation $(\fc{1}\op{+}\fv{x})^{\fv{n}} \approx \fc{1} \op{+} \fv{n}\fv{x}$
       and the function $\fv{f}$ in the linear approximation $\fv{f}(\iv{x}) \approx \fv{f}(\fv{a}) + \fv{f}\op{'}(\fv{a})(\iv{x}-\fv{a})$.
       It also includes free constants such as constants of integration.
       If it could have a value or definition but has not been assigned one,
       it falls into this category,
       even if it is later assigned a value or definition.
-\item[The independent variable] is \iv{red}.
+    \item[The independent variable] is \iv{\textbf{red}}.
       The choice of independent variable is not intrinsic to the equation,
       but making it a different color gives context to the intended use of the relation.
       It is a semantic annotation,
       not a rigorously defined construct.
 
-\item[Fixed constants] are \fc{blue}.
+    \item[Fixed constants] are \fc{\textbf{blue}}.
       These include numeric constants like $\fc{0}$, $\fc{\pi}$ or $\fc{e}$,
       vector constants like the unit vector $\fc{\hat{x}}$,
       physical constants like the speed of light $\fc{c}$ or Avogadro's number $\fc{N_A}$,
@@ -792,7 +792,7 @@ or
       Similarly,
       while drag coefficients are constant for a given object at a given Reynolds number,
       they are freely variable components of the drag equation.)
-\item[Indices and other bound variables] are \bv{gray}.
+    \item[Indices and other bound variables] are \bv{\textbf{gray}}.
       This includes $\bv{k}$ in
       $\op{\sum_{\bv{k} \nt{=} \fc{0}}^{\fc{100}}}$
       and $\bv{x}$ in
@@ -805,7 +805,7 @@ or
       Note that the constraint must be explicit and local to the expression;
       most free variables have some kind of constraints on them,
       but not enough to evaluate the expression.
-\item[Everything else] remains \nt{black}.
+    \item[Everything else] remains \nt{\textbf{black}}.
       This includes clarifying parenthesis in expressions like
       $(
         \fv{a} \op{/} \fv{b}
